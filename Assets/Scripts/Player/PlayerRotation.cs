@@ -20,6 +20,8 @@ public class PlayerRotation : MonoBehaviour
 
     private void Update()
     {
+        if (PauseMenu.isPause)
+            return;
         if (player == null)
             return;
         updateControl();

@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool gamePaused = false;
+
+    public static bool isPause = false;
 
     public GameObject pauseMenuUI;
 
@@ -13,7 +12,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
-            if (gamePaused)
+            if (isPause)
             {
                 Resume();
             }
@@ -27,15 +26,13 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        gamePaused = false;
+        isPause = false;
     }
 
     public void Pause()
     {
         pauseMenuUI.SetActive(true);
-        Time.timeScale = 0;
-        gamePaused = true;
+        isPause = true;
     }
 
     public void LoadMenu()
