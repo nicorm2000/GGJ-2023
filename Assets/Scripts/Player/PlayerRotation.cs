@@ -56,7 +56,7 @@ public class PlayerRotation : MonoBehaviour
         v3.x = distanceX * Mathf.Cos(currentAngle);
         v3.z = distanceX * Mathf.Sin(currentAngle);
         v3.y = distanceY;
-        transform.position = v3;
+        transform.position = v3 + player.transform.position;
 
         transform.LookAt(player.transform.position);
 

@@ -9,6 +9,7 @@ public class Market : MonoBehaviourSingleton<Market>
     [SerializeField] GameObject buildCanvas = null;
 
     [SerializeField] GameObject[] towers = null;
+    [SerializeField] int[] prices = null;
 
     public void SetCurrentPlaceToBuid(PlaceToBuildTorret buildTorret)
     {
@@ -34,8 +35,9 @@ public class Market : MonoBehaviourSingleton<Market>
         {
             case 0: 
                 Debug.Log("ty buid 0, this torret...");
-                if (true/*has enought currency?*/)
+                if (Currency.Get().HasEnought(prices[index]))
                 {
+                    Currency.Get().Spend(prices[index]);
                     Debug.Log("create new tower");
                     Instantiate(towers[index], currentBuildingPlace.transform.position + Vector3.up, Quaternion.identity, null);
                     //instance tower on point, locker the place//or delet.
