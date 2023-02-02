@@ -28,10 +28,10 @@ public class Turret : MonoBehaviour
 
     void UpdateTarget()
     {
+        //Find Enemy
+
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-
         float shortestDistance = Mathf.Infinity;
-
         GameObject nearestEnemy = null;
 
         foreach (GameObject enemy in enemies)
