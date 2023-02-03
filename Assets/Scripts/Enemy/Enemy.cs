@@ -1,12 +1,16 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour,IDamageable
 {
     [SerializeField] float speed = 10f;
 
     [SerializeField] private float distanceToAtack;
     [SerializeField] private float atackSpeed;
     [SerializeField] private int damage;
+
+    [SerializeField] private int lives = 10;
+    [SerializeField] private int currencyValue;
+
 
     private Transform target;
     private float DAS = 0; //Delta Atack Speed
@@ -48,5 +52,14 @@ public class Enemy : MonoBehaviour
     private void Atack()
     {
         GameManager.Get().LoseLife(damage);
+    }
+
+    public void takeDamage(int value)
+    {
+        lives -= value;
+        if (lives > 0)
+            return;
+        Currency.Get().Income(currencyValue);
+        Destroy(gameObject);
     }
 }
