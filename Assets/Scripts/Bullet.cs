@@ -6,6 +6,8 @@ public class Bullet : MonoBehaviour
 
     [SerializeField] float speed = 70f;
 
+    [SerializeField] int damage = 1;
+
     [SerializeField] GameObject impactEffect;
 
     public void Seek(Transform _target)
@@ -38,6 +40,9 @@ public class Bullet : MonoBehaviour
     {
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effectIns, 1f);
+        IDamageable Id = (IDamageable)target.gameObject.GetComponent(typeof(IDamageable));
+        if (Id != null)
+            Id.takeDamage(damage);
         
         Destroy(gameObject);
     }
