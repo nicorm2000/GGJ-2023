@@ -550,6 +550,7 @@ GameObject:
   - component: {fileID: 103480472}
   - component: {fileID: 103480471}
   - component: {fileID: 103480473}
+  - component: {fileID: 103480474}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -569,11 +570,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 212161a2f4c8fa04bbada0b8611b7aa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 2615707306503291054, guid: f9fc0d3579771b0468e4e828b34d9ac9, type: 3}
-  spawnPoint: {fileID: 49815645}
   timeBetweenWaves: 5
   countdown: 2
   waveCountdownText: {fileID: 260228538}
+  enemySpawner: {fileID: 103480474}
 --- !u!4 &103480472
 Transform:
   m_ObjectHideFlags: 0
@@ -604,6 +604,21 @@ MonoBehaviour:
   dontDestroyOnLoad: 0
   lifes: 100
   player: {fileID: 434649407}
+--- !u!114 &103480474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103480470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0e5c6735639418408fa95d46a2901ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 2615707306503291054, guid: f9fc0d3579771b0468e4e828b34d9ac9, type: 3}
+  spawnPoint: {fileID: 49815645}
+  SpawnRate: 1
 --- !u!1 &155718687
 GameObject:
   m_ObjectHideFlags: 0
@@ -4722,6 +4737,7 @@ GameObject:
   - component: {fileID: 1875396931}
   - component: {fileID: 1875396930}
   - component: {fileID: 1875396929}
+  - component: {fileID: 1875396933}
   m_Layer: 5
   m_Name: ---MAIN CANVAS---
   m_TagString: Untagged
@@ -4816,6 +4832,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1875396933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875396928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f6d10ee1b46676428c14ca1ee6d9ea7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenuUI: {fileID: 454667393}
 --- !u!1 &1875489792
 GameObject:
   m_ObjectHideFlags: 0

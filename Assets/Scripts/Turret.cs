@@ -59,9 +59,9 @@ public class Turret : MonoBehaviour
     void Update()
     {
         if (target == null)
-        {
             return;
-        }
+        if (PauseMenu.isPause)
+            return;
 
         //Target Lock On
         Vector3 dir = target.position - transform.position;
