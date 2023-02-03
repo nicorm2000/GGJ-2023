@@ -4,6 +4,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 {
     [SerializeField] private int lifes = 100;
 
+    [SerializeField] private Transform player = null;
+
     public void LoseLife(int damage)
     {
         lifes -= damage;
@@ -11,5 +13,10 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         {
             //lose windows;
         }
+    }
+
+    public Transform GetPlayer()
+    {
+        return player;
     }
 }
