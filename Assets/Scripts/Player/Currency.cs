@@ -7,10 +7,16 @@ public class Currency : MonoBehaviourSingleton<Currency>
 
     [SerializeField] private TextMeshProUGUI textCurrency;
 
-    public void Spend(int value)
+    public bool Spend(int price)
     {
-        fertilizer -= value;
-        textCurrency.text = "fertilizer: "+ fertilizer.ToString();
+        bool enought;
+        enought = HasEnought(price);
+        if (enought)
+        {
+            fertilizer -= price;
+            textCurrency.text = "fertilizer: "+ fertilizer.ToString();
+        }
+        return enought;
     }
 
     public void Income(int value)
@@ -19,7 +25,7 @@ public class Currency : MonoBehaviourSingleton<Currency>
         textCurrency.text = "fertilizer: " + fertilizer.ToString();
     }
 
-    public bool HasEnought(int value)
+    private bool HasEnought(int value)
     {
         if (fertilizer>=value)
             return true;

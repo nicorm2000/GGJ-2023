@@ -35,11 +35,11 @@ public class Market : MonoBehaviourSingleton<Market>
         {
             case 0: 
                 Debug.Log("ty buid 0, this torret...");
-                if (Currency.Get().HasEnought(prices[index]))
+                if (Currency.Get().Spend(prices[index]))
                 {
-                    Currency.Get().Spend(prices[index]);
                     Debug.Log("create new tower");
                     Instantiate(towers[index], currentBuildingPlace.transform.position + Vector3.up, Quaternion.identity, null);
+                    Destroy(currentBuildingPlace.gameObject);
                     //instance tower on point, locker the place//or delet.
                     EndSelect();
                 }
