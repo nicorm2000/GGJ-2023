@@ -18,6 +18,9 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PauseMenu.isPause)
+            return;
+
         if (target == null)
         {
             Destroy(gameObject);
