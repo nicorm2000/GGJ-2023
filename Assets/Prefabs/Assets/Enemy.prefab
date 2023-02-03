@@ -115,4 +115,4 @@ MonoBehaviour:
   atackSpeed: 1
   damage: 1
   lives: 1
-  currencyValue: 0
+  currencyValue: 2
