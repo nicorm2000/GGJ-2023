@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class VenomTower : Turret, IUpdateable
 {
+    [SerializeField] private float[] venomDuration = null;
 
-    private int venomDurationLvl = 0;
+    [SerializeField] private int venomDurationLvl = 0;
 
     public void BuyUpgrade(int index, int lvl)
     {
@@ -24,6 +23,15 @@ public class VenomTower : Turret, IUpdateable
                     fireRateLvl++;
                 break;
         }
+    }
+    protected override void Shoot()
+    {
+        GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Bullet bullet = bulletGO.GetComponent<Bullet>();
+
+        if (bullet != null)
+            bullet.Seek(target, damage[damageLvl], true, false,venomDuration[venomDurationLvl]);
+
     }
 }
     

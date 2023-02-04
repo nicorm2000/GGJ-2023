@@ -46,8 +46,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af4e1778dc86864ab52cae3d4fd014b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 15
-  fireRate: 0.8
+  range:
+  - 10
+  - 20
+  - 35
+  - 50
+  fireRate:
+  - 2
+  - 1.75
+  - 1.25
+  - 1
+  damage: 04000000080000000c00000010000000
+  rangeLvl: 0
+  fireRateLvl: 0
+  damageLvl: 0
+  priceUpgrade1: 
+  priceUpgrade2: 
+  priceUpgrade3: 
+  shootTo: 0
   partToRotate: {fileID: 5799304246163087284}
   turnSpeed: 10
   bulletPrefab: {fileID: 7394849814376117466, guid: 736a660e91e8e9242affe6dda3824f6f, type: 3}
