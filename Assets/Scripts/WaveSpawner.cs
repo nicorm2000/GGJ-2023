@@ -11,23 +11,48 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] float countdown = 2f;
     [SerializeField] TextMeshProUGUI waveCountdownText;
 
-    [SerializeField] EnemySpawner enemySpawner = null;
-
+    [SerializeField] float defaultDeltaSpawn;
     [SerializeField] private int waveIndex = 0;
 
     [SerializeField] EnemyType[] enemyTypes;
     [SerializeField] Transform[] spawnPoint;
 
+    
+    float deltaSpawn;
+    float enemyCount;
+
     private void Update()
     {
+        
         if (PauseMenu.isPause)
             return;
         if (countdown <= 0f)
         {
             waveIndex++;
-            enemySpawner.SpawnWave(waveIndex);
-            //StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
+            
+            foreach(EnemyType ET in enemyTypes)
+            {
+                ET.Amount = ET.MaxAmount;
+                enemyCount += ET.Amount;
+            }
+            defaultDeltaSpawn = countdown * 0.85f;
+        }
+
+        if (enemyCount > 0)
+        {
+            if (deltaSpawn > 0)
+            {
+                deltaSpawn -= Time.deltaTime;
+            }
+            else
+            {
+
+                deltaSpawn = defaultDeltaSpawn + Random.Range(-defaultDeltaSpawn / 2, defaultDeltaSpawn / 2);
+                //enemyTypes = enemyDefaultTypes;
+                SpawnEnemy();
+
+            }
         }
 
         countdown -= Time.deltaTime;
@@ -36,66 +61,39 @@ public class WaveSpawner : MonoBehaviour
     }
 
     
-    /*
-    bool inUse = false;
-    int currentWave = 0;
-    [SerializeField] float SpawnRate = 1;
-    float deltaTimeSpawn = 0;
-    int enemiesSpawns = 0;
 
-    public void SpawnWave(int index)
+    public void SpawnEnemy()
     {
-        inUse = true;
-        currentWave = index;
-        deltaTimeSpawn = SpawnRate;
-    }
-    void Update()
-    {
-        if (PauseMenu.isPause)
-            return;
-        if (!inUse)
-            return;
-        if (deltaTimeSpawn < SpawnRate)
+        Transform enemy = null;
+        while (enemy == null)
         {
-            deltaTimeSpawn += Time.deltaTime;
-        }
-        else
-        {
-            deltaTimeSpawn = 0;
-            SpawnEnemy();
-            if (enemiesSpawns >= currentWave)
+            int ID = Random.Range(0, enemyTypes.Length - 1);
+            if(enemyTypes[ID].Amount > 0)
             {
-                MyReset();
+                enemyTypes[ID].Amount -= 1;
+                enemy = enemyTypes[ID].EnemyPrefab;
+
             }
         }
+
+        Transform _spawnPoint = spawnPoint[Random.Range(0, spawnPoint.Length - 1)];
+
+        Instantiate(enemy, _spawnPoint.position, _spawnPoint.rotation);
+        enemyCount -= 1;
+
+
     }
+
+    
+    /*
 
     void SpawnEnemy()
     {
         Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
         enemiesSpawns++;
     }
-    void MyReset()
-    {
-        inUse = false;
-        enemiesSpawns = 0;
-    }
+  
 
-    //IEnumerator SpawnWave()
-    //{
-    //    
-    //    waveIndex++;
-    //
-    //    for (int i = 0; i < waveIndex; i++)
-    //    {
-    //        SpawnEnemy();
-    //        yield return new WaitForSeconds(0.5f);
-    //    }
-    //}
-
-    //void SpawnEnemy()
-    //{
-    //    Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
-    //}
+ 
     */
 }

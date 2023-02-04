@@ -7,6 +7,9 @@ public class EnemyType : ScriptableObject
 {
     
     public Transform EnemyPrefab;
+    public int MaxAmount;
+    public int Amount;
     public int SpawnTime;
-    public int EnemyScalingTime;
+    public int ScalingTime;
+    public int ScalingAmount;
 }
