@@ -99,7 +99,9 @@ public class WaveSpawner : MonoBehaviour
 
         Transform _spawnPoint = spawnPoint[Random.Range(0, spawnPoint.Length)];
 
-        Instantiate(enemy, _spawnPoint.position, _spawnPoint.rotation);
+        Vector3 _SpawnPosition = _spawnPoint.position + new Vector3(Random.Range(-1,1), Random.Range(0, 1), Random.Range(-1, 1));
+
+        Instantiate(enemy, _SpawnPosition, _spawnPoint.rotation);
         enemyCount -= 1;
 
 
