@@ -30,6 +30,7 @@ public class Enemy : MonoBehaviour,IDamageable
     private void Start()
     {
         target = GameManager.Get().GetPlayer();
+        Debug.Log(target.position);
     }
 
     public void AffectPoison(float posionDamage,float poisonTime)
