@@ -3,16 +3,24 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour,IDamageable
 {
-    [SerializeField] float speed = 10f;
+    [SerializeField] float BaseSpeed = 10f;
 
     [SerializeField] private float distanceToAtack;
     [SerializeField] private float atackSpeed;
     [SerializeField] private int damage;
 
-    [SerializeField] private int lives = 10;
+    [SerializeField] private float lives = 10;
     [SerializeField] private int currencyValue;
 
-    public int IdOnList = 0;
+    [SerializeField,Range(0,1)] private float speedPercentaje = 1f;
+    [SerializeField] private float speed = 5f;
+
+    [SerializeField] private bool poisoned = false;
+
+    [SerializeField] private float poisonDamage = 0;
+
+    [SerializeField] private float poisonTime = 0;
+
 
 
     private Transform target;
@@ -24,17 +32,38 @@ public class Enemy : MonoBehaviour,IDamageable
         target = GameManager.Get().GetPlayer();
     }
 
+    public void AffectPoison(float posionDamage,float poisonTime)
+    {
+        poisoned = true;
+        this.poisonTime = poisonTime;
+        this.poisonDamage = posionDamage;
+    }
+
+
     private void Update()
     {
         if (target == null)
             return;
         if (PauseMenu.isPause)
             return;
+        if (poisoned)
+        {
+            if (poisonTime>0)
+            {
+                poisonTime -= Time.deltaTime;
+                takeDamage(poisonDamage);
+            }
+            else
+            {
+                poisoned = false;
+            }
+        }
+
         
         if (Vector3.Distance(target.position, transform.position) > distanceToAtack)
         {
             Vector3 dir = target.position - transform.position;
-            transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+            transform.Translate(dir.normalized * speed * speedPercentaje * Time.deltaTime, Space.World);
             transform.LookAt(target);
         }
         else
@@ -57,7 +86,7 @@ public class Enemy : MonoBehaviour,IDamageable
         GameManager.Get().LoseLife(damage);
     }
 
-    public void takeDamage(int value)
+    public void takeDamage(float value)
     {
         lives -= value;
         if (lives > 0)
@@ -72,4 +101,8 @@ public class Enemy : MonoBehaviour,IDamageable
         
     }
 
+    public void takeVenom(float damage,float time)
+    {
+        AffectPoison(damage, time);
+    }
 }

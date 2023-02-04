@@ -12,10 +12,13 @@ public class Bullet : MonoBehaviour
 
     [SerializeField] GameObject impactEffect;
 
-    public void Seek(Transform _target,int dagame)
+    public void Seek(Transform _target,int dagame, bool venom = false, bool slow = false)
     {
         target = _target;
         this.damage = dagame;
+        this.appliedSlow = slow;
+        this.appliedVenom = venom;
+
     }
 
     // Update is called once per frame

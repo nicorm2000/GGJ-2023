@@ -18,11 +18,17 @@ public class Turret : MonoBehaviour
     [SerializeField] float[] fireRate;
     [SerializeField] int[] damage;
 
+
+
     private float deltaTimeShoot = 0f;
 
-    [SerializeField] int rangeLvl = 0;
-    [SerializeField] int fireRateLvl = 0;
-    [SerializeField] int damageLvl = 0;
+    [SerializeField] protected int rangeLvl = 0;
+    [SerializeField] protected int fireRateLvl = 0;
+    [SerializeField] protected int damageLvl = 0;
+
+    [SerializeField] protected int[] priceUpgrade1 = null;
+    [SerializeField] protected int[] priceUpgrade2 = null;
+    [SerializeField] protected int[] priceUpgrade3 = null;
 
     [SerializeField]
     FOLLOWTO shootTo = FOLLOWTO.CLOSER;
@@ -77,7 +83,7 @@ public class Turret : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() //protected virtual void update
     {
         if (PauseMenu.isPause)
             return;
@@ -99,7 +105,7 @@ public class Turret : MonoBehaviour
             deltaTimeShoot += Time.deltaTime;
     }
 
-    void Shoot()
+    protected virtual void Shoot()
     {
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
