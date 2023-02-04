@@ -37,21 +37,5 @@ public class Market : MonoBehaviourSingleton<Market>
             Destroy(currentBuildingPlace.gameObject);
             EndSelect();
         }
-
-        //switch (index)
-        //{
-        //    case 0: 
-        //        Debug.Log("ty buid 0, this torret...");
-        //        if (Currency.Get().Spend(prices[index]))
-        //        {
-        //            Instantiate(towers[index], currentBuildingPlace.transform.position + Vector3.up, Quaternion.identity, null);
-        //            Destroy(currentBuildingPlace.gameObject);
-        //            EndSelect();
-        //        }
-        //        break;
-        //    default:
-        //        Debug.Log("not definition");
-        //        break;
-        //}
     }
 }

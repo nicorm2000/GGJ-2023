@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-public class MainTower : Turret, IUpdateable
+public class MainTower : Turret
 {
 
     private int maxLifeRegenLvl = 0;
@@ -14,23 +14,33 @@ public class MainTower : Turret, IUpdateable
 
     private float DeltaRegen = 0;
 
-    public void BuyUpgrade(int index, int lvl)
+    public override bool BuyUpgrade(int index)
     {
         switch (index)
         {
             case 0:
                 if (Currency.Get().Spend(priceUpgrade1[rangeLvl]))
+                {
                     rangeLvl++;
-                break;
+                    return true;
+                }
+                return false;
             case 1:
                 if (Currency.Get().Spend(priceUpgrade2[maxLifeRegenLvl]))
+                {
                     maxLifeRegenLvl++;
-                break;
+                    return true;
+                }
+                return false;
             case 2:
                 if (Currency.Get().Spend(priceUpgrade1[damageLvl]))
+                {
                     damageLvl++;
-                break;
+                    return true;
+                }
+                return false;
         }
+        return false;
     }
 
     protected override void Update()

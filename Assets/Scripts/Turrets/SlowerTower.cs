@@ -1,5 +1,5 @@
 using UnityEngine;
-public class SlowerTower : Turret, IUpdateable
+public class SlowerTower : Turret
 {
     [SerializeField] private float[] slowPrc = null;
     [SerializeField] private float[] slowDuration = null;
@@ -12,23 +12,33 @@ public class SlowerTower : Turret, IUpdateable
 
     [SerializeField] private int explotionLvl = 0;
 
-    public void BuyUpgrade(int index, int lvl)
+    public override bool BuyUpgrade(int index)
     {
         switch (index)
         {
             case 0:
                 if (Currency.Get().Spend(priceUpgrade1[slowPrcLvl]))
+                {
                     slowPrcLvl++;
-                break;
+                    return true;
+                }
+                return false;
             case 1:
                 if (Currency.Get().Spend(priceUpgrade2[rangeLvl]))
+                {
                     rangeLvl++;
-                break;
+                    return true;
+                }
+                return false;
             case 2:
                 if (Currency.Get().Spend(priceUpgrade1[slowDurationLvl]))
+                {
                     slowDurationLvl++;
-                break;
+                    return true;
+                }
+                return false;
         }
+        return false;
     }
     protected override void Shoot()
     {

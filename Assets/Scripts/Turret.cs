@@ -105,6 +105,11 @@ public class Turret : MonoBehaviour
             deltaTimeShoot += Time.deltaTime;
     }
 
+    public virtual bool BuyUpgrade(int index)
+    {
+        return false;
+    }
+
     protected virtual void Shoot()
     {
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);

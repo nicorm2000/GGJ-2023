@@ -1,28 +1,38 @@
 using UnityEngine;
 
-public class VenomTower : Turret, IUpdateable
+public class VenomTower : Turret
 {
     [SerializeField] private float[] venomDuration = null;
 
     [SerializeField] private int venomDurationLvl = 0;
 
-    public void BuyUpgrade(int index, int lvl)
+    public override bool BuyUpgrade(int index)
     {
         switch (index)
         {
             case 0:
                 if (Currency.Get().Spend(priceUpgrade1[damageLvl]))
+                {
                     damageLvl++;
-                break;
+                    return true;
+                }
+                return false;
             case 1:
                 if (Currency.Get().Spend(priceUpgrade2[venomDurationLvl]))
+                {
                     venomDurationLvl++;
-                break;
+                    return true;
+                }
+                return false;
             case 2:
                 if (Currency.Get().Spend(priceUpgrade1[fireRateLvl]))
+                {
                     fireRateLvl++;
-                break;
+                    return true;
+                }
+                return false;
         }
+        return false;
     }
     protected override void Shoot()
     {

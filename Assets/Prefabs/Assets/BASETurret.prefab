@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1567006909030051258}
   - component: {fileID: 2419392141862156526}
+  - component: {fileID: 522660395340861833}
   m_Layer: 0
   m_Name: BASETurret
   m_TagString: Untagged
@@ -69,6 +70,21 @@ MonoBehaviour:
   turnSpeed: 10
   bulletPrefab: {fileID: 7394849814376117466, guid: 736a660e91e8e9242affe6dda3824f6f, type: 3}
   firePoint: {fileID: 4737737890763905439}
+  maxLife: []
+  regen: []
+  regenPer: 1
+--- !u!114 &522660395340861833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145658678381379553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4758c5dab9316843a3d31db8004919f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1451094733214127978
 GameObject:
   m_ObjectHideFlags: 0
