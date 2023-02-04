@@ -9,15 +9,17 @@ public class Bullet : MonoBehaviour
     [SerializeField] int damage = 1;
     [SerializeField] bool appliedVenom = false;
     [SerializeField] bool appliedSlow = false;
+    [SerializeField] float TimeVenom;
 
     [SerializeField] GameObject impactEffect;
 
-    public void Seek(Transform _target,int dagame, bool venom = false, bool slow = false)
+    public void Seek(Transform _target,int dagame, bool venom = false, bool slow = false, float venomTime = 0)
     {
         target = _target;
         this.damage = dagame;
         this.appliedSlow = slow;
         this.appliedVenom = venom;
+        this.TimeVenom = venomTime;
 
     }
 
@@ -59,7 +61,18 @@ public class Bullet : MonoBehaviour
 
         IDamageable Id = (IDamageable)target.gameObject.GetComponent(typeof(IDamageable));
         if (Id != null)
-            Id.takeDamage(damage);
+            if (appliedVenom)
+            {
+                Id.takeVenom(damage, TimeVenom);
+            }
+            else if(appliedSlow)
+            {
+
+            }
+            else
+            {
+                Id.takeDamage(damage);
+            }
         
         Destroy(gameObject);
     }

@@ -15,11 +15,17 @@ public class Enemy : MonoBehaviour,IDamageable
     [SerializeField,Range(0,1)] private float speedPercentaje = 1f;
     [SerializeField] private float speed = 5f;
 
-    [SerializeField] private bool poisoned = false;
+    [SerializeField]
+    private float poisonDamage = 0;
 
-    [SerializeField] private float poisonDamage = 0;
+    [SerializeField]
+    private float poisonTime = 0;
 
-    [SerializeField] private float poisonTime = 0;
+    [SerializeField]
+    private float slowTime = 0;
+
+    [SerializeField]
+    private float slowPrc = 1;
 
 
 
@@ -35,9 +41,13 @@ public class Enemy : MonoBehaviour,IDamageable
 
     public void AffectPoison(float posionDamage,float poisonTime)
     {
-        poisoned = true;
         this.poisonTime = poisonTime;
         this.poisonDamage = posionDamage;
+    }
+    public void AffectedSlow(float slowTime,float prc)
+    {
+        this.slowPrc = prc;
+        this.slowTime = slowTime;
     }
 
 
@@ -47,20 +57,25 @@ public class Enemy : MonoBehaviour,IDamageable
             return;
         if (PauseMenu.isPause)
             return;
-        if (poisoned)
+        if (poisonTime > 0)
         {
-            if (poisonTime>0)
-            {
-                poisonTime -= Time.deltaTime;
-                takeDamage(poisonDamage);
-            }
-            else
-            {
-                poisoned = false;
-            }
+            poisonTime -= Time.deltaTime;
+            takeDamage(poisonDamage);
+        }
+        else if (slowTime > 0)
+        {
+            slowTime -= Time.deltaTime;
+            speedPercentaje = slowPrc;
+        }
+        else
+        {
+            speedPercentaje = 1;
         }
 
-        
+
+
+
+
         if (Vector3.Distance(target.position, transform.position) > distanceToAtack)
         {
             Vector3 dir = target.position - transform.position;
@@ -105,5 +120,11 @@ public class Enemy : MonoBehaviour,IDamageable
     public void takeVenom(float damage,float time)
     {
         AffectPoison(damage, time);
+    }
+
+    public void takeSlow(float damage, float time,float prc)
+    {
+        takeDamage(damage);
+        AffectedSlow(time, prc);
     }
 }

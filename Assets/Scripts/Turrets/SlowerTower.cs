@@ -1,10 +1,12 @@
 using UnityEngine;
-
 public class SlowerTower : Turret, IUpdateable
 {
-    private int slowPrcLvl = 0;
+    [SerializeField] private float[] slowPrc = null;
+    [SerializeField] private float[] slowDuration = null;
 
-    private int slowDurationLvl = 0;
+    [SerializeField] private int slowPrcLvl = 0;
+
+    [SerializeField] private int slowDurationLvl = 0;
 
     public void BuyUpgrade(int index, int lvl)
     {
@@ -24,4 +26,14 @@ public class SlowerTower : Turret, IUpdateable
                 break;
         }
     }
+    protected override void Shoot()
+    {
+        GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Bullet bullet = bulletGO.GetComponent<Bullet>();
+
+        if (bullet != null)
+            bullet.Seek(target, damage[damageLvl],false,true);
+
+    }
+
 }
