@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430109f6dfeb50b459f83796fe2f1812, type: 3}
   m_Name: Termita
   m_EditorClassIdentifier: 
-  EnemyPrefab: {fileID: 0}
-  SpawnTime: 0
-  EnemyScalingTime: 0
+  EnemyPrefab: {fileID: 2615707306503291054, guid: f9fc0d3579771b0468e4e828b34d9ac9, type: 3}
+  MaxAmount: 5
+  Amount: 4
+  SpawnTime: 1
+  ScalingTime: 1
+  ScalingAmount: 3

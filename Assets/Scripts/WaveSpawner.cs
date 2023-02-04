@@ -12,7 +12,6 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] TextMeshProUGUI waveCountdownText;
 
     [SerializeField] float defaultDeltaSpawn;
-    [SerializeField] private int waveIndex = 0;
 
     [SerializeField] EnemyType[] enemyTypes;
     [SerializeField] Transform[] spawnPoint;
@@ -28,7 +27,6 @@ public class WaveSpawner : MonoBehaviour
             return;
         if (countdown <= 0f)
         {
-            waveIndex++;
             countdown = timeBetweenWaves;
             
             foreach(EnemyType ET in enemyTypes)
