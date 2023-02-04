@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class VenomTower : Turret, IUpdateable
 {
-    private float[] venomDuration = null;
+    [SerializeField] private float[] venomDuration = null;
 
-    private int venomDurationLvl = 0;
+    [SerializeField] private int venomDurationLvl = 0;
 
     public void BuyUpgrade(int index, int lvl)
     {

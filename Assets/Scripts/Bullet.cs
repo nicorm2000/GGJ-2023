@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 
     [SerializeField] float speed = 70f;
     [SerializeField] float explosionRadius = 0f;
-    [SerializeField] int damage = 1;
+    [SerializeField] float damage = 1;
     [SerializeField] bool appliedVenom = false;
     [SerializeField] bool appliedSlow = false;
     [SerializeField] float TimeVenom;
@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
         explosionRadius = area;
     }
 
-    public void Seek(Transform _target,int dagame, bool venom = false, bool slow = false, float venomTime = 0, float slowTime=0,float prcSlow=1)
+    public void Seek(Transform _target,float dagame, bool venom = false, bool slow = false, float venomTime = 0, float slowTime=0,float prcSlow=1)
     {
         target = _target;
         this.damage = dagame;

@@ -16,7 +16,7 @@ public class Turret : MonoBehaviour
 
     [SerializeField] float[] range = null;
     [SerializeField] float[] fireRate = null;
-    [SerializeField] protected int[] damage;
+    [SerializeField] protected float[] damage;
 
 
 
