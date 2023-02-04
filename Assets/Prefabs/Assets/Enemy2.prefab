@@ -110,8 +110,8 @@ Transform:
   m_GameObject: {fileID: 8612348749769883903}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 14.56, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6601946215684918843}
   m_Father: {fileID: 0}
@@ -129,17 +129,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b78966deb41b9c4e88ef48fcb94741c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseSpeed: 10
+  BaseSpeed: 1
   distanceToAtack: 3
   atackSpeed: 1
-  damage: 1
-  lives: 10
-  currencyValue: 2
+  damage: 50
+  lives: 160
+  currencyValue: 50
   speedPercentaje: 1
-  speed: 5
-  poisoned: 0
   poisonDamage: 0
   poisonTime: 0
+  slowTime: 0
+  slowPrc: 1
 --- !u!65 &7913389861129366678
 BoxCollider:
   m_ObjectHideFlags: 0
