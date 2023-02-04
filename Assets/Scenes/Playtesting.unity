@@ -762,9 +762,7 @@ MonoBehaviour:
   waveCountdownText: {fileID: 260228538}
   defaultDeltaSpawn: 1
   enemyTypes:
-  - {fileID: 11400000, guid: f78ece06ad236524fa29497a5bb64296, type: 2}
   - {fileID: 11400000, guid: 6cbcc8cf4f43f444bbafe3290bf3d73e, type: 2}
-  - {fileID: 11400000, guid: 410ad2872a683d4488d2e43aab60db00, type: 2}
   spawnPoint:
   - {fileID: 49815645}
   - {fileID: 49815645}
@@ -1178,6 +1176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hacksMenu: {fileID: 207220200}
+  currencyToAdd: 100
 --- !u!4 &248651292
 Transform:
   m_ObjectHideFlags: 0
@@ -6495,7 +6494,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94f7a0334efb4754b9a62f6ae5410314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTurret: {fileID: 0}
 --- !u!1 &1381127870
 GameObject:
   m_ObjectHideFlags: 0
@@ -6791,7 +6789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2581103805909070045, guid: f34f028678158064bbbe6b1987facda1, type: 3}
       propertyPath: range.Array.data[0]
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2581103805909070045, guid: f34f028678158064bbbe6b1987facda1, type: 3}
       propertyPath: range.Array.data[1]
