@@ -8,8 +8,8 @@ public class EnemyType : ScriptableObject
     
     public Transform EnemyPrefab;
     public int MaxAmount;
-    public int Amount;
-    public int SpawnTime;
+    [HideInInspector] public int Amount;
+    public int StartTime;
     public int ScalingTime;
     public int ScalingAmount;
 }

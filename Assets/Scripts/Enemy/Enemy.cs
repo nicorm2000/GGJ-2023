@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour,IDamageable
     [SerializeField] private int currencyValue;
 
     [SerializeField,Range(0,1)] private float speedPercentaje = 1f;
-    [SerializeField] private float speed = 5f;
+    
     [Space(4)]
     [SerializeField]
     private float poisonDamage = 0;
@@ -78,7 +78,7 @@ public class Enemy : MonoBehaviour,IDamageable
         if (Vector3.Distance(targetPosition, transform.position) > distanceToAtack)
         {
             Vector3 dir = targetPosition - transform.position;
-            transform.Translate(dir.normalized * speed * speedPercentaje * Time.deltaTime, Space.World);
+            transform.Translate(dir.normalized * BaseSpeed * speedPercentaje * Time.deltaTime, Space.World);
             transform.LookAt(targetPosition);
         }
         else
