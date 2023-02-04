@@ -628,7 +628,6 @@ GameObject:
   - component: {fileID: 103480472}
   - component: {fileID: 103480471}
   - component: {fileID: 103480473}
-  - component: {fileID: 103480474}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -688,25 +687,6 @@ MonoBehaviour:
   dontDestroyOnLoad: 0
   lifes: 100
   player: {fileID: 434649407}
---- !u!114 &103480474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 103480470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0e5c6735639418408fa95d46a2901ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 2615707306503291054, guid: f9fc0d3579771b0468e4e828b34d9ac9, type: 3}
-  spawnPoint: {fileID: 49815645}
-  inUse: 0
-  currentWave: 0
-  SpawnRate: 0.5
-  deltaTimeSpawn: 0
-  enemiesSpawns: 0
 --- !u!4 &122669804 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: da98e80f4d2cd6545a23f1f8b855624c, type: 3}

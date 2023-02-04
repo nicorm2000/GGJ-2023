@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour,IDamageable
 
     [SerializeField,Range(0,1)] private float speedPercentaje = 1f;
     [SerializeField] private float speed = 5f;
-
+    [Space(4)]
     [SerializeField]
     private float poisonDamage = 0;
 
@@ -29,14 +29,14 @@ public class Enemy : MonoBehaviour,IDamageable
 
 
 
-    private Transform target;
+    private Vector3 targetPosition;
     private float DAS = 0; //Delta Atack Speed
 
 
     private void Start()
     {
-        target = GameManager.Get().GetPlayer();
-        Debug.Log(target.position);
+        targetPosition = GameManager.Get().GetPlayer().position;
+        targetPosition = new Vector3(targetPosition.x,transform.position.y, targetPosition.z);
     }
 
     public void AffectPoison(float posionDamage,float poisonTime)
@@ -53,8 +53,7 @@ public class Enemy : MonoBehaviour,IDamageable
 
     private void Update()
     {
-        if (target == null)
-            return;
+        
         if (PauseMenu.isPause)
             return;
         if (poisonTime > 0)
@@ -76,11 +75,11 @@ public class Enemy : MonoBehaviour,IDamageable
 
 
 
-        if (Vector3.Distance(target.position, transform.position) > distanceToAtack)
+        if (Vector3.Distance(targetPosition, transform.position) > distanceToAtack)
         {
-            Vector3 dir = target.position - transform.position;
+            Vector3 dir = targetPosition - transform.position;
             transform.Translate(dir.normalized * speed * speedPercentaje * Time.deltaTime, Space.World);
-            transform.LookAt(target);
+            transform.LookAt(targetPosition);
         }
         else
         {
