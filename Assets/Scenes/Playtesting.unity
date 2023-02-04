@@ -6789,7 +6789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2581103805909070045, guid: f34f028678158064bbbe6b1987facda1, type: 3}
       propertyPath: range.Array.data[0]
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2581103805909070045, guid: f34f028678158064bbbe6b1987facda1, type: 3}
       propertyPath: range.Array.data[1]
