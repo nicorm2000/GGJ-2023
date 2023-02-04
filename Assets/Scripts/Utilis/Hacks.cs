@@ -4,14 +4,16 @@ public class Hacks : MonoBehaviour
 {
     private bool isActive = false;
     [SerializeField] private GameObject hacksMenu = null;
+
+    [SerializeField] private int currencyToAdd = 100;
     public void AddCurrency()
     {
-        Currency.Get().Income(10);
+        Currency.Get().Income(currencyToAdd);
     }
 
     public void LessCurrency()
     {
-        Currency.Get().Spend(10);
+        Currency.Get().Spend(currencyToAdd);
     }
     private void Update()
     {
