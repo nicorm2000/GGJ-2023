@@ -3,39 +3,83 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour,IDamageable
 {
-    [SerializeField] float speed = 10f;
+    [SerializeField] float BaseSpeed = 10f;
 
     [SerializeField] private float distanceToAtack;
     [SerializeField] private float atackSpeed;
     [SerializeField] private int damage;
 
-    [SerializeField] private int lives = 10;
+    [SerializeField] private float lives = 10;
     [SerializeField] private int currencyValue;
 
-    public int IdOnList = 0;
+    [SerializeField,Range(0,1)] private float speedPercentaje = 1f;
+    [SerializeField] private float speed = 5f;
+    [Space(4)]
+    [SerializeField]
+    private float poisonDamage = 0;
+
+    [SerializeField]
+    private float poisonTime = 0;
+
+    [SerializeField]
+    private float slowTime = 0;
+
+    [SerializeField]
+    private float slowPrc = 1;
 
 
-    private Transform target;
+
+    private Vector3 targetPosition;
     private float DAS = 0; //Delta Atack Speed
 
 
     private void Start()
     {
-        target = GameManager.Get().GetPlayer();
+        targetPosition = GameManager.Get().GetPlayer().position;
+        targetPosition = new Vector3(targetPosition.x,transform.position.y, targetPosition.z);
     }
+
+    public void AffectPoison(float posionDamage,float poisonTime)
+    {
+        this.poisonTime = poisonTime;
+        this.poisonDamage = posionDamage;
+    }
+    public void AffectedSlow(float slowTime,float prc)
+    {
+        this.slowPrc = prc;
+        this.slowTime = slowTime;
+    }
+
 
     private void Update()
     {
-        if (target == null)
-            return;
+        
         if (PauseMenu.isPause)
             return;
-        
-        if (Vector3.Distance(target.position, transform.position) > distanceToAtack)
+        if (poisonTime > 0)
         {
-            Vector3 dir = target.position - transform.position;
-            transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
-            transform.LookAt(target);
+            poisonTime -= Time.deltaTime;
+            takeDamage(poisonDamage);
+        }
+        else if (slowTime > 0)
+        {
+            slowTime -= Time.deltaTime;
+            speedPercentaje = slowPrc;
+        }
+        else
+        {
+            speedPercentaje = 1;
+        }
+
+
+
+
+
+        if (Vector3.Distance(targetPosition, transform.position) > distanceToAtack)
+        {
+            Vector3 dir = targetPosition - transform.position;
+            transform.Translate(dir.normalized * speed * speedPercentaje * Time.deltaTime, Space.World);
+            transform.LookAt(targetPosition);
         }
         else
         {
@@ -57,7 +101,7 @@ public class Enemy : MonoBehaviour,IDamageable
         GameManager.Get().LoseLife(damage);
     }
 
-    public void takeDamage(int value)
+    public void takeDamage(float value)
     {
         lives -= value;
         if (lives > 0)
@@ -72,4 +116,14 @@ public class Enemy : MonoBehaviour,IDamageable
         
     }
 
+    public void takeVenom(float damage,float time)
+    {
+        AffectPoison(damage, time);
+    }
+
+    public void takeSlow(float damage, float time,float prc)
+    {
+        takeDamage(damage);
+        AffectedSlow(time, prc);
+    }
 }

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 430109f6dfeb50b459f83796fe2f1812, type: 3}
-  m_Name: Termita
+  m_Name: Avispa
   m_EditorClassIdentifier: 
-  EnemyPrefab: {fileID: 2615707306503291054, guid: f9fc0d3579771b0468e4e828b34d9ac9, type: 3}
-  MaxAmount: 5
-  Amount: 4
-  SpawnTime: 1
-  ScalingTime: 1
-  ScalingAmount: 3
+  EnemyPrefab: {fileID: 5331373577434476437, guid: 64d23ec9fd993ef43b70721b637c20bb, type: 3}
+  MaxAmount: 0
+  Amount: 0
+  SpawnTime: 0
+  ScalingTime: 0
+  ScalingAmount: 0

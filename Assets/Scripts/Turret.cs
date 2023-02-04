@@ -10,19 +10,25 @@ public class Turret : MonoBehaviour
         LAST
     }
 
-    private Transform target;
+    protected Transform target;
 
     [Header("Attributes")]
 
-    [SerializeField] float[] range;
-    [SerializeField] float[] fireRate;
-    [SerializeField] int[] damage;
+    [SerializeField] float[] range = null;
+    [SerializeField] float[] fireRate = null;
+    [SerializeField] protected float[] damage;
+
+
 
     private float deltaTimeShoot = 0f;
 
-    [SerializeField] int rangeLvl = 0;
-    [SerializeField] int fireRateLvl = 0;
-    [SerializeField] int damageLvl = 0;
+    [SerializeField] protected int rangeLvl = 0;
+    [SerializeField] protected int fireRateLvl = 0;
+    [SerializeField] protected int damageLvl = 0;
+
+    [SerializeField] protected int[] priceUpgrade1 = null;
+    [SerializeField] protected int[] priceUpgrade2 = null;
+    [SerializeField] protected int[] priceUpgrade3 = null;
 
     [SerializeField]
     FOLLOWTO shootTo = FOLLOWTO.CLOSER;
@@ -32,8 +38,8 @@ public class Turret : MonoBehaviour
     [SerializeField] Transform partToRotate =null;
     [SerializeField] float turnSpeed = 10f;
 
-    [SerializeField] GameObject bulletPrefab = null;
-    [SerializeField] Transform firePoint =null;
+    [SerializeField] protected GameObject bulletPrefab = null;
+    [SerializeField] protected Transform firePoint =null;
 
     void UpdateTarget()
     {
@@ -77,7 +83,7 @@ public class Turret : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() //protected virtual void update
     {
         if (PauseMenu.isPause)
             return;
@@ -99,7 +105,7 @@ public class Turret : MonoBehaviour
             deltaTimeShoot += Time.deltaTime;
     }
 
-    void Shoot()
+    protected virtual void Shoot()
     {
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
@@ -112,6 +118,6 @@ public class Turret : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, range[rangeLvl]);
+        //Gizmos.DrawWireSphere(transform.position, range[rangeLvl]);
     }
 }

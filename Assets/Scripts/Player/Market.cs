@@ -31,24 +31,27 @@ public class Market : MonoBehaviourSingleton<Market>
 
     public void BuidTorret(int index) //repace index whit enum type class. //this was call on buttons.
     {
-        switch (index)
+        if (Currency.Get().Spend(prices[index]))
         {
-            case 0: 
-                Debug.Log("ty buid 0, this torret...");
-                if (Currency.Get().Spend(prices[index]))
-                {
-                    Debug.Log("create new tower");
-                    Instantiate(towers[index], currentBuildingPlace.transform.position + Vector3.up, Quaternion.identity, null);
-                    Destroy(currentBuildingPlace.gameObject);
-                    //instance tower on point, locker the place//or delet.
-                    EndSelect();
-                }
-                else
-                    Debug.Log("not enought money");
-                break;
-            default:
-                Debug.Log("not definition");
-                break;
+            Instantiate(towers[index], currentBuildingPlace.transform.position + Vector3.up, Quaternion.identity, null);
+            Destroy(currentBuildingPlace.gameObject);
+            EndSelect();
         }
+
+        //switch (index)
+        //{
+        //    case 0: 
+        //        Debug.Log("ty buid 0, this torret...");
+        //        if (Currency.Get().Spend(prices[index]))
+        //        {
+        //            Instantiate(towers[index], currentBuildingPlace.transform.position + Vector3.up, Quaternion.identity, null);
+        //            Destroy(currentBuildingPlace.gameObject);
+        //            EndSelect();
+        //        }
+        //        break;
+        //    default:
+        //        Debug.Log("not definition");
+        //        break;
+        //}
     }
 }
