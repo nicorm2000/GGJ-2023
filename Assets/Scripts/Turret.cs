@@ -14,7 +14,7 @@ public class Turret : MonoBehaviour
 
     [Header("Attributes")]
 
-    [SerializeField] float[] range = null;
+    [SerializeField] protected float[] range = null;
     [SerializeField] float[] fireRate = null;
     [SerializeField] protected float[] damage;
 
@@ -83,7 +83,7 @@ public class Turret : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update() //protected virtual void update
+    protected virtual void Update() //protected virtual void update
     {
         if (PauseMenu.isPause)
             return;
