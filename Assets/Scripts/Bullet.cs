@@ -7,6 +7,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] float speed = 70f;
     [SerializeField] float explosionRadius = 0f;
     [SerializeField] int damage = 1;
+    [SerializeField] bool appliedVenom = false;
+    [SerializeField] bool appliedSlow = false;
 
     [SerializeField] GameObject impactEffect;
 
@@ -50,10 +52,6 @@ public class Bullet : MonoBehaviour
         {
             Explode();
         }
-        else
-        {
-            Damage(target);
-        }
 
         IDamageable Id = (IDamageable)target.gameObject.GetComponent(typeof(IDamageable));
         if (Id != null)
@@ -69,14 +67,12 @@ public class Bullet : MonoBehaviour
         {
             if (collider.tag == "Enemy")
             {
-                Damage(collider.transform);
+                IDamageable Id = (IDamageable)collider.gameObject.GetComponent(typeof(IDamageable));
+
+                if (Id != null)
+                    Id.takeDamage(damage);
             }
         }
-    }
-
-    void Damage(Transform enemy)
-    {
-        Destroy(enemy.gameObject);
     }
 
     private void OnDrawGizmosSelected()
