@@ -1,81 +1,102 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
+    [SerializeField]
+    private enum FOLLOWTO
+    {
+        CLOSER,
+        FIRST,
+        LAST
+    }
+
     private Transform target;
 
     [Header("Attributes")]
 
-    [SerializeField] float range = 15f;
-    [SerializeField] float fireRate = 1f;
-    private float fireCountdown = 0f;
+    [SerializeField] float[] range;
+    [SerializeField] float[] fireRate;
+    [SerializeField] int[] damage;
+
+    private float deltaTimeShoot = 0f;
+
+    [SerializeField] int rangeLvl = 0;
+    [SerializeField] int fireRateLvl = 0;
+    [SerializeField] int damageLvl = 0;
+
+    [SerializeField]
+    FOLLOWTO shootTo = FOLLOWTO.CLOSER;
 
     [Header("Unity Set Up Fields")]
 
-    [SerializeField] Transform partToRotate;
+    [SerializeField] Transform partToRotate =null;
     [SerializeField] float turnSpeed = 10f;
 
-    [SerializeField] GameObject bulletPrefab;
-    [SerializeField] Transform firePoint;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
-    }
+    [SerializeField] GameObject bulletPrefab = null;
+    [SerializeField] Transform firePoint =null;
 
     void UpdateTarget()
     {
-        //Find Enemy
-
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        float shortestDistance = Mathf.Infinity;
-        GameObject nearestEnemy = null;
-
-        foreach (GameObject enemy in enemies)
+        if (target==null)
         {
-            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-
-            if (distanceToEnemy < shortestDistance)
+            Collider[] colliders = Physics.OverlapSphere(transform.position, range[rangeLvl]);
+            
+            foreach (Collider collider in colliders)
             {
-                shortestDistance = distanceToEnemy;
-                nearestEnemy = enemy;
+                
+                if (collider.tag == "Enemy")
+                {
+                    if (target == null)
+                    {
+                        target = collider.transform;
+                    }
+                    Enemy e = collider.GetComponent<Enemy>();
+                    switch (shootTo)
+                    {
+                        case FOLLOWTO.CLOSER:
+                            if (Vector3.Distance (collider.transform.position,transform.position)< Vector3.Distance(target.position,transform.position))
+                                target = collider.transform;
+                            break;
+                        case FOLLOWTO.FIRST:
+                            if (e.GetDistanceToCenter()<target.GetComponent<Enemy>().GetDistanceToCenter())
+                                target = collider.transform;
+                            break;
+                        case FOLLOWTO.LAST:
+                            if (e.GetDistanceToCenter() > target.GetComponent<Enemy>().GetDistanceToCenter())
+                                target = collider.transform;
+                            break;
+                        default:
+                            break;
+                    }
+                }
             }
         }
-
-        if (nearestEnemy != null && shortestDistance <= range)
-        {
-            target = nearestEnemy.transform;
-        }
         else
-        {
-            target = null;
-        }
+            if (Vector3.Distance (target.position,this.transform.position)>range[rangeLvl])
+                target = null;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (target == null)
-            return;
         if (PauseMenu.isPause)
             return;
-
+        UpdateTarget();
+        if (target ==null)
+            return;
         //Target Lock On
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
-        if (fireCountdown <= 0f)
+        if (deltaTimeShoot >= fireRate[fireRateLvl])
         {
             Shoot();
-            fireCountdown = 1f / fireRate;
+            deltaTimeShoot = 0;
         }
-
-        fireCountdown -= Time.deltaTime;
+        else
+            deltaTimeShoot += Time.deltaTime;
     }
 
     void Shoot()
@@ -84,14 +105,13 @@ public class Turret : MonoBehaviour
         Bullet bullet = bulletGO.GetComponent<Bullet>();
 
         if (bullet != null)
-        {
-            bullet.Seek(target);
-        }
+            bullet.Seek(target,damage[damageLvl]);
+        
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, range);
+        Gizmos.DrawWireSphere(transform.position, range[rangeLvl]);
     }
 }
