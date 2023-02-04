@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Avispa
   m_EditorClassIdentifier: 
   EnemyPrefab: {fileID: 5331373577434476437, guid: 64d23ec9fd993ef43b70721b637c20bb, type: 3}
-  MaxAmount: 0
+  MaxAmount: 2
   Amount: 0
-  SpawnTime: 0
+  StartTime: 0
   ScalingTime: 0
   ScalingAmount: 0
