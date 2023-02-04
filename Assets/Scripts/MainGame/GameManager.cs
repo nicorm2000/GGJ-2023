@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviourSingleton<GameManager>
 {
-    [SerializeField] private int lifes = 100;
+    [SerializeField] private float lifes = 100;
 
     [SerializeField] private Transform player = null;
 
@@ -13,6 +13,14 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         {
             //lose windows;
         }
+    }
+    public void winLife(float life)
+    {
+        lifes += life;
+    }
+    public float getLife()
+    { 
+        return lifes; 
     }
 
     public Transform GetPlayer()
