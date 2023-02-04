@@ -5,8 +5,7 @@ using TMPro;
 
 public class WaveSpawner : MonoBehaviour
 {
-    //[SerializeField] Transform enemyPrefab;
-    //[SerializeField] Transform spawnPoint;
+  
     [SerializeField] float timeBetweenWaves = 5f;
     [SerializeField] float countdown = 2f;
     [SerializeField] TextMeshProUGUI waveCountdownText;
