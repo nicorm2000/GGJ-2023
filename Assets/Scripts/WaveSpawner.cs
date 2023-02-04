@@ -15,9 +15,19 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] EnemyType[] enemyTypes;
     [SerializeField] Transform[] spawnPoint;
 
-    
+    float StartTime;
     float deltaSpawn;
     float enemyCount;
+
+    private void Start()
+    {
+        StartTime = Time.realtimeSinceStartup;
+        foreach (EnemyType ET in enemyTypes)
+        {
+            ET.scalingTimer += StartTime;
+
+        }
+    }
 
     private void Update()
     {
@@ -30,8 +40,17 @@ public class WaveSpawner : MonoBehaviour
             
             foreach(EnemyType ET in enemyTypes)
             {
-                ET.Amount = ET.MaxAmount;
-                enemyCount += ET.Amount;
+                float _tiempoPasado = Time.realtimeSinceStartup - StartTime;
+                if (_tiempoPasado > ET.scalingTimer)
+                {
+                    ET.scalingTimer += ET.ScalingTime;
+                }
+
+                if (_tiempoPasado > ET.StartTime) {
+                    ET.Amount = ET.MaxAmount;
+                    enemyCount += ET.Amount;
+                }
+                
 
             }
             defaultDeltaSpawn = countdown * 0.9f/enemyCount;
@@ -70,7 +89,7 @@ public class WaveSpawner : MonoBehaviour
             Debug.Log(enemyTypes.Length);
             Debug.Log(enemyTypes[ID].Amount);
             Debug.Log(enemyCount);
-            if (enemyTypes[ID].Amount > 0)
+            if (enemyTypes[ID].Amount > 0 )
             {
                 enemyTypes[ID].Amount -= 1;
                 enemy = enemyTypes[ID].EnemyPrefab;

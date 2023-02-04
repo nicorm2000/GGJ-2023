@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour,IDamageable
 
     private Vector3 targetPosition;
     private float DAS = 0; //Delta Atack Speed
-
+    private float tickRate = 0.5f;
 
     private void Start()
     {
@@ -41,6 +41,7 @@ public class Enemy : MonoBehaviour,IDamageable
 
     public void AffectPoison(float posionDamage,float poisonTime)
     {
+        
         this.poisonTime = poisonTime;
         this.poisonDamage = posionDamage;
     }
@@ -58,8 +59,15 @@ public class Enemy : MonoBehaviour,IDamageable
             return;
         if (poisonTime > 0)
         {
-            poisonTime -= Time.deltaTime;
-            takeDamage(poisonDamage);
+            tickRate -= Time.deltaTime;
+            if (tickRate <= 0)
+            {
+                poisonTime = tickRate + 0.5f;
+                tickRate = 0.5f;
+                takeDamage(poisonDamage);
+            }
+                
+            
         }
         else if (slowTime > 0)
         {
