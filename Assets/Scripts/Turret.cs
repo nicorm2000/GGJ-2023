@@ -10,13 +10,13 @@ public class Turret : MonoBehaviour
         LAST
     }
 
-    private Transform target;
+    protected Transform target;
 
     [Header("Attributes")]
 
-    [SerializeField] float[] range;
-    [SerializeField] float[] fireRate;
-    [SerializeField] int[] damage;
+    [SerializeField] float[] range = null;
+    [SerializeField] float[] fireRate = null;
+    [SerializeField] protected int[] damage;
 
 
 
@@ -38,8 +38,8 @@ public class Turret : MonoBehaviour
     [SerializeField] Transform partToRotate =null;
     [SerializeField] float turnSpeed = 10f;
 
-    [SerializeField] GameObject bulletPrefab = null;
-    [SerializeField] Transform firePoint =null;
+    [SerializeField] protected GameObject bulletPrefab = null;
+    [SerializeField] protected Transform firePoint =null;
 
     void UpdateTarget()
     {
@@ -118,6 +118,6 @@ public class Turret : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, range[rangeLvl]);
+        //Gizmos.DrawWireSphere(transform.position, range[rangeLvl]);
     }
 }
