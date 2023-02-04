@@ -56,13 +56,17 @@ MonoBehaviour:
   - 1.75
   - 1.25
   - 1
-  damage: 04000000080000000c00000010000000
+  damage:
+  - 20
+  - 30
+  - 40
+  - 50
   rangeLvl: 0
   fireRateLvl: 0
   damageLvl: 0
-  priceUpgrade1: 
-  priceUpgrade2: 
-  priceUpgrade3: 
+  priceUpgrade1: 4f010000f40100003e030000
+  priceUpgrade2: 2b0200003e03000069050000
+  priceUpgrade3: dc0000004a0100002b020000
   shootTo: 0
   partToRotate: {fileID: 5799304246163087284}
   turnSpeed: 10

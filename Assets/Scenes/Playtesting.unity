@@ -6400,7 +6400,9 @@ MonoBehaviour:
   buildCanvas: {fileID: 1258223326}
   towers:
   - {fileID: 145658678381379553, guid: f34f028678158064bbbe6b1987facda1, type: 3}
-  prices: 0a000000
+  - {fileID: 145658678381379553, guid: 05a11bc95ab283a4ea794134f45f3a87, type: 3}
+  - {fileID: 145658678381379553, guid: da160ed56f66cb740b93b697ba158789, type: 3}
+  prices: 67020000d200000096000000
 --- !u!4 &1357067790
 Transform:
   m_ObjectHideFlags: 0
@@ -6710,6 +6712,10 @@ PrefabInstance:
     - target: {fileID: 2581103805909070045, guid: f34f028678158064bbbe6b1987facda1, type: 3}
       propertyPath: damage.Array.data[0]
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581103805909070045, guid: f34f028678158064bbbe6b1987facda1, type: 3}
+      propertyPath: damage.Array.data[1]
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2581103805909070045, guid: f34f028678158064bbbe6b1987facda1, type: 3}
       propertyPath: damage.Array.data[2]

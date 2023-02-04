@@ -46,14 +46,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b78966deb41b9c4e88ef48fcb94741c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseSpeed: 1
+  BaseSpeed: 0
   distanceToAtack: 3
   atackSpeed: 1
   damage: 25
   lives: 50
   currencyValue: 25
   speedPercentaje: 1
-  speed: 5
+  speed: 1
   poisonDamage: 0
   poisonTime: 0
   slowTime: 0
