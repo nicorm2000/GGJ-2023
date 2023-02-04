@@ -33,7 +33,7 @@ public class WaveSpawner : MonoBehaviour
                 ET.Amount = ET.MaxAmount;
                 enemyCount += ET.Amount;
             }
-            defaultDeltaSpawn = countdown * 0.85f;
+            defaultDeltaSpawn = countdown * 0.9f/enemyCount;
         }
 
         if (enemyCount > 0)
