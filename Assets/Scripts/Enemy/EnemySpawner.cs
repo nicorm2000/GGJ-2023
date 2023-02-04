@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] Transform enemyPrefab;
+    [SerializeField] EnemyType enemyPrefab;
     [SerializeField] Transform spawnPoint;
 
     bool inUse = false;

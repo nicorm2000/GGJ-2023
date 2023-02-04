@@ -12,9 +12,10 @@ public class Bullet : MonoBehaviour
 
     [SerializeField] GameObject impactEffect;
 
-    public void Seek(Transform _target)
+    public void Seek(Transform _target,int dagame)
     {
         target = _target;
+        this.damage = dagame;
     }
 
     // Update is called once per frame

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour,IDamageable
@@ -10,6 +11,8 @@ public class Enemy : MonoBehaviour,IDamageable
 
     [SerializeField] private int lives = 10;
     [SerializeField] private int currencyValue;
+
+    public int IdOnList = 0;
 
 
     private Transform target;
@@ -62,4 +65,11 @@ public class Enemy : MonoBehaviour,IDamageable
         Currency.Get().Income(currencyValue);
         Destroy(gameObject);
     }
+
+    public float GetDistanceToCenter()
+    {
+        return Vector3.Distance(GameManager.Get().GetPlayer().position, transform.position);
+        
+    }
+
 }
