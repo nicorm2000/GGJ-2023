@@ -64,7 +64,7 @@ MonoBehaviour:
   priceUpgrade1: 87000000cd00000054010000
   priceUpgrade2: 370000005000000087000000
   priceUpgrade3: 500000007d000000cd000000
-  shootTo: 0
+  shootTo: 2
   partToRotate: {fileID: 5799304246163087284}
   turnSpeed: 10
   bulletPrefab: {fileID: 7394849814376117466, guid: 736a660e91e8e9242affe6dda3824f6f, type: 3}
