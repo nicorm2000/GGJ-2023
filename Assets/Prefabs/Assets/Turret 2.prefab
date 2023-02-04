@@ -47,9 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range:
-  - 2
-  - 2
-  - 12
+  - 10
+  - 20
+  - 30
   fireRate:
   - 1
   damage: 01000000
@@ -68,8 +68,11 @@ MonoBehaviour:
   - 0.5
   slowDuration:
   - 1
+  explotionRange:
+  - 1
   slowPrcLvl: 0
   slowDurationLvl: 0
+  explotionLvl: 0
 --- !u!1 &1451094733214127978
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,10 +3,14 @@ public class SlowerTower : Turret, IUpdateable
 {
     [SerializeField] private float[] slowPrc = null;
     [SerializeField] private float[] slowDuration = null;
+    [SerializeField] private float[] explotionRange = null;
+
 
     [SerializeField] private int slowPrcLvl = 0;
 
     [SerializeField] private int slowDurationLvl = 0;
+
+    [SerializeField] private int explotionLvl = 0;
 
     public void BuyUpgrade(int index, int lvl)
     {
@@ -32,7 +36,11 @@ public class SlowerTower : Turret, IUpdateable
         Bullet bullet = bulletGO.GetComponent<Bullet>();
 
         if (bullet != null)
-            bullet.Seek(target, damage[damageLvl],false,true);
+        {
+            bullet.SetExplosive(explotionRange[explotionLvl]);
+
+            bullet.Seek(target, damage[damageLvl],false,true,0,slowDuration[slowDurationLvl],slowPrc[slowPrcLvl]);
+        }
 
     }
 
