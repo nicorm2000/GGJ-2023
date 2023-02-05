@@ -133,10 +133,10 @@ MonoBehaviour:
   BaseSpeed: 1
   distanceToAtack: 3
   atackSpeed: 1
-  damage: 50
-  lives: 160
-  maxLives: 10
-  currencyValue: 50
+  damage: 15
+  lives: 30
+  maxLives: 30
+  currencyValue: 15
   speedPercentaje: 1
   poisonDamage: 0
   poisonTime: 0
