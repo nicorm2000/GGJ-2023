@@ -6,11 +6,15 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     [SerializeField] private Transform player = null;
 
+    [SerializeField] private GameObject endCanvas = null;
+
     public void LoseLife(int damage)
     {
         lifes -= damage;
         if (lifes<0)
         {
+            endCanvas.SetActive(true);
+            PauseMenu.isPause = true;
             //lose windows;
         }
     }
