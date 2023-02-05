@@ -15,7 +15,10 @@ MonoBehaviour:
   EnemyPrefab: {fileID: 2615707306503291054, guid: f9fc0d3579771b0468e4e828b34d9ac9, type: 3}
   MaxAmount: 3
   ScalingAmount: 0
+  DescalingAmount: 0
   StartTime: 0
-  ScalingTime: 1
-  scalingTimer: 110.98891
+  ScalingTime: 0
+  DescalingTime: 0
+  scalingTimer: 114.86148
+  descalingTimer: 3.8725765
   Amount: 2

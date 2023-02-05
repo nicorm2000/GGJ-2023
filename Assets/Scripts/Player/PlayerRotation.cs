@@ -66,7 +66,7 @@ public class PlayerRotation : MonoBehaviour
     {
         if (onMove)
             return;
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             progressLerp = 0;
             lastAngle = currentAngle;
@@ -74,7 +74,7 @@ public class PlayerRotation : MonoBehaviour
             onMove = true;
         }
 
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             progressLerp = 0;
             lastAngle = currentAngle;
