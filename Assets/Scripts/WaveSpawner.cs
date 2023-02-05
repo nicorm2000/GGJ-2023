@@ -44,6 +44,8 @@ public class WaveSpawner : MonoBehaviour
             {
                 float _tiempoPasado = Time.realtimeSinceStartup - StartTime;
                
+
+
                 if (_tiempoPasado > ET.scalingTimer) {
                     ET.MaxAmount += ET.ScalingAmount;
                     ET.scalingTimer += ET.ScalingTime;
@@ -89,9 +91,7 @@ public class WaveSpawner : MonoBehaviour
         while (enemy == null)
         {
             int ID = Random.Range(0, enemyTypes.Length);
-            Debug.Log(enemyTypes.Length);
-            Debug.Log(enemyTypes[ID].Amount);
-            Debug.Log(enemyCount);
+            
             if (enemyTypes[ID].Amount > 0 )
             {
                 enemyTypes[ID].Amount -= 1;
