@@ -49,29 +49,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 10
-  fireRate: 10
+  fireRate: 1.2
   damage:
-  - 1
-  - 1
-  - 1
+  - 10
+  - 20
+  - 30
   damageLvl: 0
-  priceUpgrade1: 64000000c80000002c01000090010000
-  priceUpgrade2: 000000000000000000000000
-  priceUpgrade3: 000000000000000000000000
+  priceUpgrade1: 0d0200001603000023050000
+  priceUpgrade2: 3b010000db01000016030000
+  priceUpgrade3: d20000003b0100000d020000
   shootTo: 0
   partToRotate: {fileID: 5799304246163087284}
   turnSpeed: 10
   bulletPrefab: {fileID: 7394849814376117466, guid: 736a660e91e8e9242affe6dda3824f6f, type: 3}
   firePoint: {fileID: 4737737890763905439}
   maxLife:
-  - 1000
-  - 5000
-  - 7000
-  - 7000
-  range:
-  - 6
-  - 1
-  - 1
+  - 250
+  - 300
+  - 400
+  - 500
+  range2:
+  - 12
+  - 14
+  - 16
+  - 20
   maxLifeRegenLvl: 0
   rangeLvl: 0
 --- !u!65 &3723873568477359394

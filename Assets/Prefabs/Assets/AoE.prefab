@@ -48,15 +48,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 10
-  fireRate: 10
+  fireRate: 1.5
   damage:
-  - 5
-  - 10
-  - 15
-  - 25
+  - 0
   damageLvl: 0
-  priceUpgrade1: 73000000aa0000001d010000
-  priceUpgrade2: be0000001d010000db010000
+  priceUpgrade1: be0000001d010000db010000
+  priceUpgrade2: 73000000aa0000001d010000
   priceUpgrade3: 4b00000073000000be000000
   shootTo: 0
   partToRotate: {fileID: 5799304246163087284}
@@ -64,18 +61,18 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7394849814376117466, guid: 736a660e91e8e9242affe6dda3824f6f, type: 3}
   firePoint: {fileID: 4737737890763905439}
   damagePrc:
-  - 0
-  - 0
-  - 0
-  - 0
+  - 0.2
+  - 0.3
+  - 0.35
+  - 0.4
   slowPrc:
   - 0
   - 5
   - 10
   - 20
-  slowDuration: 1
+  slowDuration: 3
   slowPrcLvl: 0
-  explotionArea: 0
+  explotionArea: 4
   damagePrcLvl: 0
   shootSound: shootSound
 --- !u!114 &4137060201893695102
