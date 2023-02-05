@@ -6430,6 +6430,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1314408925}
   m_CullTransparentMesh: 1
+--- !u!1 &1333686985 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 145658678381379553, guid: f34f028678158064bbbe6b1987facda1, type: 3}
+  m_PrefabInstance: {fileID: 1805171244}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1333686986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333686985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d07b07214e216134889de507174747ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range:
+  - 16
+  - 0
+  fireRate:
+  - 16
+  - 0
+  damage:
+  - 3
+  - 0
+  rangeLvl: 0
+  fireRateLvl: 0
+  damageLvl: 0
+  priceUpgrade1: 
+  priceUpgrade2: 
+  priceUpgrade3: 
+  shootTo: 0
+  partToRotate: {fileID: 0}
+  turnSpeed: 10
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  maxLife: []
+  regen: []
+  regenPer: 1
 --- !u!1 &1357067788
 GameObject:
   m_ObjectHideFlags: 0
@@ -6866,7 +6906,8 @@ PrefabInstance:
       propertyPath: fireRate.Array.data[3]
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2581103805909070045, guid: f34f028678158064bbbe6b1987facda1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f34f028678158064bbbe6b1987facda1, type: 3}
 --- !u!1001 &1843110662
 PrefabInstance:
