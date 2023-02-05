@@ -66,19 +66,19 @@ public class PlayerRotation : MonoBehaviour
     {
         if (onMove)
             return;
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKey(KeyCode.E))
         {
             progressLerp = 0;
             lastAngle = currentAngle;
-            destinationAngle += Mathf.PI/4;
+            destinationAngle += Mathf.PI/2;
             onMove = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKey(KeyCode.Q))
         {
             progressLerp = 0;
             lastAngle = currentAngle;
-            destinationAngle -= Mathf.PI / 4;
+            destinationAngle -= Mathf.PI / 2;
             onMove = true;
         }
     }

@@ -5882,7 +5882,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 42
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -5907,14 +5907,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 643758467}
-  m_LocalRotation: {x: 0.14097439, y: -0.69291145, z: 0.14097439, w: 0.69291145}
-  m_LocalPosition: {x: 25.54, y: 1.04, z: -4.79}
+  m_LocalRotation: {x: -0.3063107, y: 0.63731766, z: -0.3063107, w: -0.63731766}
+  m_LocalPosition: {x: 17.46, y: 13.98, z: -4.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 23, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 36.87, y: -90, z: 0}
 --- !u!114 &643758471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5929,7 +5929,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraLookout: {fileID: 1185664457}
   distanceX: 20
-  distanceY: 15
+  distanceY: 25
 --- !u!82 &643758472
 AudioSource:
   m_ObjectHideFlags: 0
@@ -15590,10 +15590,10 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_Strength: 0.867
+    m_Bias: 0.07
+    m_NormalBias: 0
+    m_NearPlane: 0.1
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
