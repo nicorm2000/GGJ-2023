@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1567006909030051258}
-  - component: {fileID: 2581103805909070045}
   - component: {fileID: 4527210002066819690}
+  - component: {fileID: -7432850794077092659}
   m_Layer: 0
   m_Name: Single Target
   m_TagString: Untagged
@@ -35,34 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2581103805909070045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 145658678381379553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5af4e1778dc86864ab52cae3d4fd014b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 10
-  fireRate: 10
-  damage:
-  - 20
-  - 30
-  - 40
-  - 50
-  damageLvl: 0
-  priceUpgrade1: 4f010000f40100003e030000
-  priceUpgrade2: 2b0200003e03000069050000
-  priceUpgrade3: dc0000004a0100002b020000
-  shootTo: 0
-  partToRotate: {fileID: 5799304246163087284}
-  turnSpeed: 10
-  bulletPrefab: {fileID: 7394849814376117466, guid: 736a660e91e8e9242affe6dda3824f6f, type: 3}
-  firePoint: {fileID: 4737737890763905439}
 --- !u!114 &4527210002066819690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,6 +47,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4758c5dab9316843a3d31db8004919f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7432850794077092659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145658678381379553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41ae3f18366d10a4888ad3dd95ce5695, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 10
+  fireRate: 10
+  damage:
+  - 0
+  - 0
+  - 0
+  - 0
+  damageLvl: 0
+  priceUpgrade1: 00000000000000000000000000000000
+  priceUpgrade2: 00000000000000000000000000000000
+  priceUpgrade3: 00000000000000000000000000000000
+  shootTo: 0
+  partToRotate: {fileID: 5799304246163087284}
+  turnSpeed: 10
+  bulletPrefab: {fileID: 7394849814376117466, guid: 736a660e91e8e9242affe6dda3824f6f, type: 3}
+  firePoint: {fileID: 4737737890763905439}
+  explotionRange:
+  - 0
+  - 0
+  - 0
+  - 0
+  explotionLvl: 0
+  shootSound: 
 --- !u!1 &1451094733214127978
 GameObject:
   m_ObjectHideFlags: 0

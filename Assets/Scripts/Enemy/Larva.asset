@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Larva
   m_EditorClassIdentifier: 
   EnemyPrefab: {fileID: 7568183781068391441, guid: b7f1b30ae0de8fc418cad733f6f55ed4, type: 3}
-  MaxAmount: 2
-  ScalingAmount: 0
-  DescalingAmount: 0
-  StartTime: 1.9989784
+  MaxAmount: 3
+  ScalingAmount: 3
+  DescalingAmount: 3
+  StartTime: 0
   ScalingTime: 0
   DescalingTime: 0
   scalingTimer: 0
