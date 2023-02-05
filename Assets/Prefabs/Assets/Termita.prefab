@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2725718295916468609}
   - component: {fileID: 27586525662036909}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Termita
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -22,7 +22,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void Start()
     {
-        StartTime = Time.realtimeSinceStartup;
+        
         int n = 0;
         enemyTypes = new EnemyTipes[3];
         foreach (EnemyType ET in defaultEnemyTypes)
@@ -32,7 +32,7 @@ public class WaveSpawner : MonoBehaviour
             Debug.Log(defaultEnemyTypes[n].EnemyPrefab.name);
                n += 1;
         }
-
+        StartTime = Time.realtimeSinceStartup;
         foreach (EnemyTipes ET in enemyTypes)
         {
             
@@ -56,7 +56,7 @@ public class WaveSpawner : MonoBehaviour
             {
                 float _tiempoPasado = Time.realtimeSinceStartup - StartTime;
 
-                if(_tiempoPasado > ET.StartTime + 1)
+                if(_tiempoPasado > ET.StartTime)
                 {
                     if(ET.Started == true)
                     {
@@ -78,11 +78,11 @@ public class WaveSpawner : MonoBehaviour
                     enemyCount += ET.Amount;
                 }
 
-                
-
+                Debug.Log(ET.EnemyPrefab.name +", "+ ET.Amount);
+                Debug.Log(enemyCount);
             }
             defaultDeltaSpawn = countdown * 0.9f/enemyCount;
-            Debug.Log(enemyCount);
+            
         }
 
         if (enemyCount > 0)
@@ -114,9 +114,7 @@ public class WaveSpawner : MonoBehaviour
         while (enemy == null)
         {
             int ID = Random.Range(0, enemyTypes.Length);
-            Debug.Log(enemyTypes.Length);
-            Debug.Log(enemyTypes[ID].Amount);
-            Debug.Log(enemyCount);
+            
             if (enemyTypes[ID].Amount > 0 )
             {
                 enemyTypes[ID].Amount -= 1;
