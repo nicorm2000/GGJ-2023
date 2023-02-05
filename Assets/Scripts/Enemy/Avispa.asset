@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyPrefab: {fileID: 5331373577434476437, guid: 64d23ec9fd993ef43b70721b637c20bb, type: 3}
   MaxAmount: 2
-  ScalingAmount: 0
-  DescalingAmount: 0
-  StartTime: 10
-  ScalingTime: 0
-  DescalingTime: 0
+  ScalingAmount: 2
+  DescalingAmount: 1
+  StartTime: 180
+  ScalingTime: 30
+  DescalingTime: 60
   scalingTimer: 1.9925936
   descalingTimer: 0
   Amount: 4

@@ -4255,7 +4255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 0
-  updateCanvas: {fileID: 0}
+  updateCanvas: {fileID: 31165400}
   files1:
   - {fileID: 719488454}
   - {fileID: 415203192}
