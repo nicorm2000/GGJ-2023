@@ -24,9 +24,11 @@ public class WaveSpawner : MonoBehaviour
         StartTime = Time.realtimeSinceStartup;
         foreach (EnemyType ET in enemyTypes)
         {
-            ET.scalingTimer += StartTime;
+            ET.scalingTimer = StartTime + ET.ScalingTime;
+            ET.descalingTimer = StartTime + ET.DescalingTime;
 
         }
+
     }
 
     private void Update()
@@ -41,16 +43,17 @@ public class WaveSpawner : MonoBehaviour
             foreach(EnemyType ET in enemyTypes)
             {
                 float _tiempoPasado = Time.realtimeSinceStartup - StartTime;
-                if (_tiempoPasado > ET.scalingTimer)
-                {
+               
+                if (_tiempoPasado > ET.scalingTimer) {
+                    ET.MaxAmount += ET.ScalingAmount;
                     ET.scalingTimer += ET.ScalingTime;
                 }
-
-                if (_tiempoPasado > ET.StartTime) {
-                    ET.Amount = ET.MaxAmount;
-                    enemyCount += ET.Amount;
+                if (_tiempoPasado > ET.descalingTimer)
+                {
+                    ET.MaxAmount += ET.DescalingAmount;
+                    ET.descalingTimer += ET.DescalingTime;
                 }
-                
+
 
             }
             defaultDeltaSpawn = countdown * 0.9f/enemyCount;
