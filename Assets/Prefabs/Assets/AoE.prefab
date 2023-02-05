@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1567006909030051258}
   - component: {fileID: 2316288752402596876}
   - component: {fileID: 4137060201893695102}
+  - component: {fileID: -6580664215615155424}
   m_Layer: 0
   m_Name: AoE
   m_TagString: Untagged
@@ -88,6 +89,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4758c5dab9316843a3d31db8004919f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &-6580664215615155424
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145658678381379553}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1451094733214127978
 GameObject:
   m_ObjectHideFlags: 0
