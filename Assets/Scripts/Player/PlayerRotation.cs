@@ -8,7 +8,7 @@ using UnityEngine;
 public class PlayerRotation : MonoBehaviour
 {
 
-    [SerializeField] Transform player = null;
+    [SerializeField] Transform cameraLookout = null;
     [SerializeField] float distanceX = 10;
     [SerializeField] float distanceY = 1;
 
@@ -22,7 +22,7 @@ public class PlayerRotation : MonoBehaviour
     {
         if (PauseMenu.isPause)
             return;
-        if (player == null)
+        if (cameraLookout == null)
             return;
         updateControl();
         updateMove();
@@ -56,9 +56,9 @@ public class PlayerRotation : MonoBehaviour
         v3.x = distanceX * Mathf.Cos(currentAngle);
         v3.z = distanceX * Mathf.Sin(currentAngle);
         v3.y = distanceY;
-        transform.position = v3 + player.transform.position;
+        transform.position = v3 + cameraLookout.transform.position;
 
-        transform.LookAt(player.transform.position);
+        transform.LookAt(cameraLookout.transform.position);
 
 
     }
@@ -66,19 +66,19 @@ public class PlayerRotation : MonoBehaviour
     {
         if (onMove)
             return;
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKey(KeyCode.E))
         {
             progressLerp = 0;
             lastAngle = currentAngle;
-            destinationAngle += Mathf.PI/2;
+            destinationAngle += Mathf.PI/4;
             onMove = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKey(KeyCode.Q))
         {
             progressLerp = 0;
             lastAngle = currentAngle;
-            destinationAngle -= Mathf.PI / 2;
+            destinationAngle -= Mathf.PI / 4;
             onMove = true;
         }
     }
