@@ -1290,6 +1290,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000030517578, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!4 &259413563 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5799304246163087284, guid: f34f028678158064bbbe6b1987facda1, type: 3}
+  m_PrefabInstance: {fileID: 1805171244}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &260228536
 GameObject:
   m_ObjectHideFlags: 0
@@ -3344,6 +3349,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 648682364}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &649885340 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4737737890763905439, guid: f34f028678158064bbbe6b1987facda1, type: 3}
+  m_PrefabInstance: {fileID: 1805171244}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &721568087
 GameObject:
   m_ObjectHideFlags: 0
@@ -6463,10 +6473,10 @@ MonoBehaviour:
   priceUpgrade2: 
   priceUpgrade3: 
   shootTo: 0
-  partToRotate: {fileID: 0}
+  partToRotate: {fileID: 259413563}
   turnSpeed: 10
-  bulletPrefab: {fileID: 0}
-  firePoint: {fileID: 0}
+  bulletPrefab: {fileID: 7394849814376117466, guid: 736a660e91e8e9242affe6dda3824f6f, type: 3}
+  firePoint: {fileID: 649885340}
   maxLife: []
   regen: []
   regenPer: 1
