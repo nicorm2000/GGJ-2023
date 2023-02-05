@@ -11,4 +11,11 @@ public class VolumeManager : MonoBehaviour
     {
         audioMixer.SetFloat("Volume", volume);
     }
+
+    public float GetVolume()
+    {
+        float volume;
+        audioMixer.GetFloat("Volume", out volume);
+        return volume;
+    }
 }
