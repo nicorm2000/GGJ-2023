@@ -60,20 +60,17 @@ MonoBehaviour:
   priceUpgrade2: 3b010000db01000016030000
   priceUpgrade3: d20000003b0100000d020000
   shootTo: 0
-  partToRotate: {fileID: 2547767490778157385}
+  partToRotate: {fileID: 0}
   turnSpeed: 10
   bulletPrefab: {fileID: 7394849814376117466, guid: 736a660e91e8e9242affe6dda3824f6f, type: 3}
   firePoint: {fileID: 4737737890763905439}
   maxLife:
-  - 250
-  - 300
-  - 400
-  - 500
+  - 1
   range2:
-  - 12
-  - 14
-  - 16
-  - 20
+  - 10
+  - 10
+  - 10
+  - 10
   maxLifeRegenLvl: 0
   rangeLvl: 0
 --- !u!65 &3723873568477359394
