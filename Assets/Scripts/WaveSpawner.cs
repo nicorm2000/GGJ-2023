@@ -24,9 +24,8 @@ public class WaveSpawner : MonoBehaviour
         StartTime = Time.realtimeSinceStartup;
         foreach (EnemyType ET in enemyTypes)
         {
-            ET.scalingTimer = StartTime + ET.ScalingTime;
-            ET.descalingTimer = StartTime + ET.DescalingTime;
-
+            
+            ET.StartTime += StartTime;
         }
 
     }
@@ -45,19 +44,29 @@ public class WaveSpawner : MonoBehaviour
             {
                 float _tiempoPasado = Time.realtimeSinceStartup - StartTime;
 
-                ET.Amount = ET.MaxAmount;
-                enemyCount += ET.Amount;
-
-                if (_tiempoPasado > ET.scalingTimer) {
-                    ET.MaxAmount += ET.ScalingAmount;
-                    ET.scalingTimer += ET.ScalingTime;
-                }
-                if (_tiempoPasado > ET.descalingTimer)
+                if(_tiempoPasado > ET.StartTime)
                 {
-                    ET.MaxAmount += ET.DescalingAmount;
-                    ET.descalingTimer += ET.DescalingTime;
+                    if(ET.Started == true)
+                    {
+                        ET.scalingTimer = _tiempoPasado + ET.ScalingTime;
+                        ET.descalingTimer = _tiempoPasado + ET.DescalingTime;
+                        ET.Started = false;
+                    }
+                    if (_tiempoPasado > ET.scalingTimer)
+                    {
+                        ET.MaxAmount += ET.ScalingAmount;
+                        ET.scalingTimer += ET.ScalingTime;
+                    }
+                    if (_tiempoPasado > ET.descalingTimer)
+                    {
+                        ET.MaxAmount -= ET.DescalingAmount;
+                        ET.descalingTimer += ET.DescalingTime;
+                    }
+                    ET.Amount = ET.MaxAmount;
+                    enemyCount += ET.Amount;
                 }
 
+                
 
             }
             defaultDeltaSpawn = countdown * 0.9f/enemyCount;

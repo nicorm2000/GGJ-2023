@@ -10,12 +10,13 @@ public class EnemyType : ScriptableObject
     public int MaxAmount;
     public int ScalingAmount;
     public int DescalingAmount;
-    public int StartTime;
+    public float StartTime;
     public int ScalingTime;
+    //poner en positivo
     public int DescalingTime;
 
     [HideInInspector] public float scalingTimer;
     [HideInInspector] public float descalingTimer;
     [HideInInspector] public int Amount;
-    
+    [HideInInspector] public bool Started = false;
 }
