@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range:
-  - 3
+  - 6
   - 5
   - 7
   - 10
