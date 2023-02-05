@@ -10,6 +10,8 @@ public class VenomTower : Turret
 
     [SerializeField] private float slowDuration = 1;
 
+    [SerializeField] private string shootSound;
+
     public override bool BuyUpgrade(int index)
     {
         switch (index)
@@ -42,8 +44,11 @@ public class VenomTower : Turret
         Bullet bullet = bulletGO.GetComponent<Bullet>();
 
         if (bullet != null)
+        {
             bullet.Seek(target, damage[damageLvl], true, true,venomDuration, slowDuration,slowPrc[slowDownLvl]);
+            FindObjectOfType<AudioManager>().Play(shootSound);
 
+        }
     }
     public override int GetLvlUpgdare(int index)
     {

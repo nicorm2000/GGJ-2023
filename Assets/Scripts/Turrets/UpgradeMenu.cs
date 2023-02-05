@@ -5,13 +5,16 @@ public class UpgradeMenu : MonoBehaviourSingleton<UpgradeMenu>
 {
     public static bool isOpen = false;
 
-    private Turret  tower = null;
+    private Turret tower = null;
 
     [SerializeField] GameObject updateCanvas = null;
 
-    [SerializeField] Image[] files1 = null; 
-    [SerializeField] Image[] files2 = null; 
-    [SerializeField] Image[] files3 = null; 
+    [SerializeField] Image[] files1 = null;
+    [SerializeField] Image[] files2 = null;
+    [SerializeField] Image[] files3 = null;
+
+    [SerializeField] private string upgradeSound = "UpgradeSound";
+
 
     public void SetCurrentPlaceToBuid(Turret Towwer)
     {
@@ -23,6 +26,7 @@ public class UpgradeMenu : MonoBehaviourSingleton<UpgradeMenu>
         {
             item.fillCenter = false;
         }
+
         for (int i = 0; i < tower.GetLvlUpgdare(0); i++)
         {
             files1[i].fillCenter = true;
@@ -32,6 +36,7 @@ public class UpgradeMenu : MonoBehaviourSingleton<UpgradeMenu>
         {
             item.fillCenter = false;
         }
+
         for (int i = 0; i < tower.GetLvlUpgdare(1); i++)
         {
             files2[i].fillCenter = true;
@@ -41,11 +46,11 @@ public class UpgradeMenu : MonoBehaviourSingleton<UpgradeMenu>
         {
             item.fillCenter = false;
         }
+
         for (int i = 0; i < tower.GetLvlUpgdare(2); i++)
         {
             files3[i].fillCenter = true;
         }
-
     }
 
     private void EndSelect()
@@ -54,6 +59,7 @@ public class UpgradeMenu : MonoBehaviourSingleton<UpgradeMenu>
         updateCanvas.SetActive(false);
         isOpen = false;
     }
+
     public void CloseMarket() //use in button.
     {
         EndSelect();
@@ -62,6 +68,9 @@ public class UpgradeMenu : MonoBehaviourSingleton<UpgradeMenu>
     public void TryBuildUpdate(int index) //repace index whit enum type class. //this was call on buttons.
     {
         if (tower.BuyUpgrade(index))
+        {
+            FindObjectOfType<AudioManager>().Play(upgradeSound);
             EndSelect();
+        }
     }
 }

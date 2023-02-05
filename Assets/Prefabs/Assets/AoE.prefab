@@ -63,7 +63,11 @@ MonoBehaviour:
   turnSpeed: 10
   bulletPrefab: {fileID: 7394849814376117466, guid: 736a660e91e8e9242affe6dda3824f6f, type: 3}
   firePoint: {fileID: 4737737890763905439}
-  damagePrc: []
+  damagePrc:
+  - 0
+  - 0
+  - 0
+  - 0
   slowPrc:
   - 0
   - 5
@@ -73,6 +77,7 @@ MonoBehaviour:
   slowPrcLvl: 0
   explotionArea: 0
   damagePrcLvl: 0
+  shootSound: shootSound
 --- !u!114 &4137060201893695102
 MonoBehaviour:
   m_ObjectHideFlags: 0

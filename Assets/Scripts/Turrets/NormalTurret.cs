@@ -1,14 +1,16 @@
 using UnityEngine;
+
 public class NormalTurret : Turret
 {
-
     [SerializeField] private float[] explotionRange = null;
 
     [SerializeField] private int explotionLvl = 0;
 
+    [SerializeField] private string shootSound;
+
     public override bool BuyUpgrade(int index)
     {
-        switch(index)
+        switch (index)
         {
             case 0:
                 if (explotionLvl >= 3)
@@ -18,6 +20,7 @@ public class NormalTurret : Turret
                     explotionLvl++;
                     return true;
                 }
+
                 break;
             case 1:
                 if (damageLvl >= 3)
@@ -27,11 +30,13 @@ public class NormalTurret : Turret
                     damageLvl++;
                     return true;
                 }
+
                 break;
             default:
                 Debug.LogError("not implemented");
                 break;
         }
+
         return false;
     }
 
@@ -44,8 +49,9 @@ public class NormalTurret : Turret
         {
             bullet.SetExplosive(explotionRange[explotionLvl]);
         }
-            bullet.Seek(target, damage[damageLvl]);
 
+        bullet.Seek(target, damage[damageLvl]);
+        FindObjectOfType<AudioManager>().Play(shootSound);
     }
 
     public override int GetLvlUpgdare(int index)

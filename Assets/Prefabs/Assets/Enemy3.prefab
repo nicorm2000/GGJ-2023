@@ -134,12 +134,16 @@ MonoBehaviour:
   atackSpeed: 1
   damage: 15
   lives: 30
+  maxLives: 10
   currencyValue: 15
   speedPercentaje: 0.75
   poisonDamage: 0
   poisonTime: 0
   slowTime: 0
   slowPrc: 1
+  deathSound: EnemyDeath
+  damagedSound: caterpillarDamaged
+  poisonSound: Poisoned
 --- !u!65 &2167647620563637017
 BoxCollider:
   m_ObjectHideFlags: 0

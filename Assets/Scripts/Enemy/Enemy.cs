@@ -28,12 +28,18 @@ public class Enemy : MonoBehaviour,IDamageable
 
     [SerializeField]
     private float slowPrc = 1;
-
-
+    
+    [SerializeField]
+    private string deathSound = "EnemyDeath";
+    
+    [SerializeField]
+    private string damagedSound;
 
     private Vector3 targetPosition;
     private float DAS = 0; //Delta Atack Speed
     private float tickRate = 0.5f;
+
+    [SerializeField] private string poisonSound = "Poisoned";
 
     private void Start()
     {
@@ -68,6 +74,8 @@ public class Enemy : MonoBehaviour,IDamageable
                 poisonTime = tickRate + 0.5f;
                 tickRate = 0.5f;
                 takeDamage(poisonDamage);
+                FindObjectOfType<AudioManager>().Play(poisonSound);
+
             }
                 
             
@@ -114,10 +122,15 @@ public class Enemy : MonoBehaviour,IDamageable
 
     public void takeDamage(float value)
     {
+        AudioManager audioManager = FindObjectOfType<AudioManager>();
         lives -= value;
         if (lives > 0)
+        {
+            audioManager.Play(damagedSound);
             return;
+        }
         Currency.Get().Income(currencyValue);
+        audioManager.Play(deathSound);
         Destroy(gameObject);
     }
 
