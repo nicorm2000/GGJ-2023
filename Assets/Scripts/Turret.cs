@@ -13,17 +13,17 @@ public class Turret : MonoBehaviour
     protected Transform target;
 
     [Header("Attributes")]
+    [Header("NotUpdateables")]
 
-    [SerializeField] protected float[] range = null;
-    [SerializeField] float[] fireRate = null;
+    [SerializeField] protected float range = 10;
+    [SerializeField] float fireRate = 10;
+
+    [Header("Updateables")]
+
     [SerializeField] protected float[] damage;
-
-
 
     private float deltaTimeShoot = 0f;
 
-    [SerializeField] protected int rangeLvl = 0;
-    [SerializeField] protected int fireRateLvl = 0;
     [SerializeField] protected int damageLvl = 0;
 
     [SerializeField] protected int[] priceUpgrade1 = null;
@@ -45,7 +45,7 @@ public class Turret : MonoBehaviour
     {
         if (target==null)
         {
-            Collider[] colliders = Physics.OverlapSphere(transform.position, range[rangeLvl]);
+            Collider[] colliders = Physics.OverlapSphere(transform.position, range);
             
             foreach (Collider collider in colliders)
             {
@@ -78,7 +78,7 @@ public class Turret : MonoBehaviour
             }
         }
         else
-            if (Vector3.Distance (target.position,this.transform.position)>range[rangeLvl])
+            if (Vector3.Distance (target.position,this.transform.position)>range)
                 target = null;
     }
 
@@ -96,7 +96,7 @@ public class Turret : MonoBehaviour
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
-        if (deltaTimeShoot >= fireRate[fireRateLvl])
+        if (deltaTimeShoot >= fireRate)
         {
             Shoot();
             deltaTimeShoot = 0;
@@ -119,6 +119,8 @@ public class Turret : MonoBehaviour
             bullet.Seek(target,damage[damageLvl]);
         
     }
+    public virtual int GetLvlUpgdare(int index) { return 0; }
+
 
     private void OnDrawGizmosSelected()
     {

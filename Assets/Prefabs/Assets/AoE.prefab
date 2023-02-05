@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1567006909030051258}
   - component: {fileID: 2316288752402596876}
+  - component: {fileID: 4137060201893695102}
   m_Layer: 0
   m_Name: AoE
   m_TagString: Untagged
@@ -46,20 +47,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35cb10f1beb1a841a9623628258b0a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range:
-  - 3
-  - 5
-  - 7
-  - 10
-  fireRate:
-  - 1.5
+  range: 10
+  fireRate: 10
   damage:
   - 5
   - 10
   - 15
   - 25
-  rangeLvl: 0
-  fireRateLvl: 0
   damageLvl: 0
   priceUpgrade1: 73000000aa0000001d010000
   priceUpgrade2: be0000001d010000db010000
@@ -69,18 +63,28 @@ MonoBehaviour:
   turnSpeed: 10
   bulletPrefab: {fileID: 7394849814376117466, guid: 736a660e91e8e9242affe6dda3824f6f, type: 3}
   firePoint: {fileID: 4737737890763905439}
+  damagePrc: []
   slowPrc:
   - 0
   - 5
   - 10
   - 20
-  slowDuration:
-  - 1
-  explotionRange:
-  - 1
+  slowDuration: 1
   slowPrcLvl: 0
-  slowDurationLvl: 0
-  explotionLvl: 0
+  explotionArea: 0
+  damagePrcLvl: 0
+--- !u!114 &4137060201893695102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145658678381379553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4758c5dab9316843a3d31db8004919f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1451094733214127978
 GameObject:
   m_ObjectHideFlags: 0

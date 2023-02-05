@@ -48,22 +48,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d07b07214e216134889de507174747ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range:
-  - 6
-  - 1
-  - 1
-  fireRate:
-  - 1
-  - 1
-  - 1
+  range: 10
+  fireRate: 10
   damage:
   - 1
   - 1
   - 1
-  rangeLvl: 0
-  fireRateLvl: 0
   damageLvl: 0
-  priceUpgrade1: 000000000000000000000000
+  priceUpgrade1: 64000000c80000002c010000
   priceUpgrade2: 000000000000000000000000
   priceUpgrade3: 000000000000000000000000
   shootTo: 0
@@ -72,10 +64,15 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7394849814376117466, guid: 736a660e91e8e9242affe6dda3824f6f, type: 3}
   firePoint: {fileID: 4737737890763905439}
   maxLife:
+  - 1000
+  - 5000
+  - 7000
+  range:
+  - 6
   - 1
-  regen:
   - 1
-  regenPer: 1
+  maxLifeRegenLvl: 0
+  rangeLvl: 0
 --- !u!65 &3723873568477359394
 BoxCollider:
   m_ObjectHideFlags: 0
