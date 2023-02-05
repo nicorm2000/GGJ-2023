@@ -11,6 +11,8 @@ public class NormalTurret : Turret
         switch(index)
         {
             case 0:
+                if (explotionLvl >= 3)
+                    return false;
                 if (Currency.Get().Spend(priceUpgrade1[explotionLvl]))
                 {
                     explotionLvl++;
@@ -18,6 +20,8 @@ public class NormalTurret : Turret
                 }
                 break;
             case 1:
+                if (damageLvl >= 3)
+                    return false;
                 if (Currency.Get().Spend(priceUpgrade2[damageLvl]))
                 {
                     damageLvl++;

@@ -15,6 +15,8 @@ public class VenomTower : Turret
         switch (index)
         {
             case 0:
+                if (slowDownLvl >= 3)
+                    return false;
                 if (Currency.Get().Spend(priceUpgrade1[slowDownLvl]))
                 {
                     slowDownLvl++;
@@ -22,6 +24,8 @@ public class VenomTower : Turret
                 }
                 return false;
             case 1:
+                if (damageLvl >= 3)
+                    return false;
                 if (Currency.Get().Spend(priceUpgrade2[damageLvl]))
                 {
                     damageLvl++;
