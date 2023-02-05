@@ -19,7 +19,7 @@ public class WaveSpawner : MonoBehaviour
     float StartTime;
     float deltaSpawn;
     float enemyCount;
-
+    float timestep;
     private void Start()
     {
         
@@ -54,32 +54,32 @@ public class WaveSpawner : MonoBehaviour
 
             foreach (EnemyTipes ET in enemyTypes)
             {
-                float _tiempoPasado = Time.realtimeSinceStartup - StartTime;
+                timestep = Time.realtimeSinceStartup - StartTime;
 
-                if(_tiempoPasado > ET.StartTime)
+                if(timestep > ET.StartTime)
                 {
                     if(ET.Started == true)
                     {
-                        ET.scalingTimer = _tiempoPasado + ET.ScalingTime;
-                        ET.descalingTimer = _tiempoPasado + ET.DescalingTime;
+                        ET.scalingTimer = timestep + ET.ScalingTime;
+                        ET.descalingTimer = timestep + ET.DescalingTime;
                         ET.Started = false;
                     }
-                    if (_tiempoPasado > ET.scalingTimer)
+                    if (timestep > ET.scalingTimer)
                     {
                         ET.MaxAmount += ET.ScalingAmount;
                         ET.scalingTimer += ET.ScalingTime;
                     }
-                    if (_tiempoPasado > ET.descalingTimer)
+                    if (timestep > ET.descalingTimer)
                     {
                         ET.MaxAmount -= ET.DescalingAmount;
                         ET.descalingTimer += ET.DescalingTime;
                     }
                     ET.Amount = ET.MaxAmount;
                     enemyCount += ET.Amount;
+                    
                 }
 
-                Debug.Log(ET.EnemyPrefab.name +", "+ ET.Amount);
-                Debug.Log(enemyCount);
+                
             }
             defaultDeltaSpawn = countdown * 0.9f/enemyCount;
             
@@ -115,7 +115,7 @@ public class WaveSpawner : MonoBehaviour
         {
             int ID = Random.Range(0, enemyTypes.Length);
             
-            if (enemyTypes[ID].Amount > 0 )
+            if (enemyTypes[ID].Amount > 0 && timestep > enemyTypes[ID].StartTime)
             {
                 enemyTypes[ID].Amount -= 1;
                 enemy = enemyTypes[ID].EnemyPrefab;

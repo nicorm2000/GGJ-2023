@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Termita
   m_EditorClassIdentifier: 
   EnemyPrefab: {fileID: 2615707306503291054, guid: f9fc0d3579771b0468e4e828b34d9ac9, type: 3}
-  MaxAmount: 25
+  MaxAmount: 6
   ScalingAmount: 0
   DescalingAmount: 0
   StartTime: 0
