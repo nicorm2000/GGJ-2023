@@ -39,11 +39,15 @@ public class WaveSpawner : MonoBehaviour
         if (countdown <= 0f)
         {
             countdown = timeBetweenWaves;
-            
-            foreach(EnemyType ET in enemyTypes)
+            enemyCount = 0;
+
+            foreach (EnemyType ET in enemyTypes)
             {
                 float _tiempoPasado = Time.realtimeSinceStartup - StartTime;
-               
+
+                ET.Amount = ET.MaxAmount;
+                enemyCount += ET.Amount;
+
                 if (_tiempoPasado > ET.scalingTimer) {
                     ET.MaxAmount += ET.ScalingAmount;
                     ET.scalingTimer += ET.ScalingTime;
