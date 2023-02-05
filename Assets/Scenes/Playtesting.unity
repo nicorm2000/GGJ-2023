@@ -762,12 +762,14 @@ MonoBehaviour:
   waveCountdownText: {fileID: 260228538}
   defaultDeltaSpawn: 1
   enemyTypes:
+  - {fileID: 11400000, guid: f78ece06ad236524fa29497a5bb64296, type: 2}
+  - {fileID: 11400000, guid: 410ad2872a683d4488d2e43aab60db00, type: 2}
   - {fileID: 11400000, guid: 6cbcc8cf4f43f444bbafe3290bf3d73e, type: 2}
   spawnPoint:
   - {fileID: 49815645}
-  - {fileID: 49815645}
-  - {fileID: 49815645}
-  - {fileID: 49815645}
+  - {fileID: 868131779}
+  - {fileID: 1381127871}
+  - {fileID: 965457940}
 --- !u!4 &103480472
 Transform:
   m_ObjectHideFlags: 0

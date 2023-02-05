@@ -19,4 +19,6 @@ public class EnemyType : ScriptableObject
     [HideInInspector] public float descalingTimer;
     [HideInInspector] public int Amount;
     [HideInInspector] public bool Started = false;
+
+    
 }
