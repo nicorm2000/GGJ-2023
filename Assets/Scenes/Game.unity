@@ -638,6 +638,64 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65057448}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &73461951
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 73461952}
+  - component: {fileID: 73461953}
+  m_Layer: 0
+  m_Name: UpgradesManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &73461952
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73461951}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 271574098}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &73461953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73461951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 655d1c6ecf02acb4380365593b2c6383, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 0
+  updateCanvas: {fileID: 31165400}
+  files1:
+  - {fileID: 719488454}
+  - {fileID: 415203192}
+  - {fileID: 1728204906}
+  files2:
+  - {fileID: 1721405109}
+  - {fileID: 252578193}
+  - {fileID: 1401937593}
+  files3:
+  - {fileID: 1269062456}
+  - {fileID: 572512347}
+  - {fileID: 373275429}
 --- !u!1 &78380248
 GameObject:
   m_ObjectHideFlags: 0
@@ -1509,6 +1567,7 @@ Transform:
   - {fileID: 248651292}
   - {fileID: 676668655}
   - {fileID: 732445378}
+  - {fileID: 73461952}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3659,7 +3718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 763934eb71d219c40a4ffbab94dd800e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraLookout: {fileID: 1185664457}
+  cameraLookout: {fileID: 0}
   distanceX: 35
   distanceY: 15
 --- !u!1 &676668654
@@ -3726,6 +3785,7 @@ MonoBehaviour:
   countdown: 2
   waveCountdownText: {fileID: 260228538}
   defaultDeltaSpawn: 1
+  enemyDefaultTypes: []
   enemyTypes:
   - {fileID: 11400000, guid: f78ece06ad236524fa29497a5bb64296, type: 2}
   - {fileID: 11400000, guid: 6cbcc8cf4f43f444bbafe3290bf3d73e, type: 2}
@@ -4699,14 +4759,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1357067789}
-        m_TargetAssemblyTypeName: Market, Assembly-CSharp
-        m_MethodName: BuidTorret
+      - m_Target: {fileID: 73461953}
+        m_TargetAssemblyTypeName: UpgradeMenu, Assembly-CSharp
+        m_MethodName: TryBuildUpdate
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5769,8 +5829,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1357067789}
-        m_TargetAssemblyTypeName: Market, Assembly-CSharp
+      - m_Target: {fileID: 73461953}
+        m_TargetAssemblyTypeName: UpgradeMenu, Assembly-CSharp
         m_MethodName: CloseMarket
         m_Mode: 1
         m_Arguments:
@@ -6701,9 +6761,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1357067789}
-        m_TargetAssemblyTypeName: Market, Assembly-CSharp
-        m_MethodName: BuidTorret
+      - m_Target: {fileID: 73461953}
+        m_TargetAssemblyTypeName: UpgradeMenu, Assembly-CSharp
+        m_MethodName: TryBuildUpdate
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7423,26 +7483,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2419392141862156526, guid: f585a79c971df124c877fb5fd3eb341a, type: 3}
-      propertyPath: regen.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2419392141862156526, guid: f585a79c971df124c877fb5fd3eb341a, type: 3}
-      propertyPath: maxLife.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2419392141862156526, guid: f585a79c971df124c877fb5fd3eb341a, type: 3}
-      propertyPath: range.Array.data[0]
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2419392141862156526, guid: f585a79c971df124c877fb5fd3eb341a, type: 3}
-      propertyPath: regen.Array.data[0]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2419392141862156526, guid: f585a79c971df124c877fb5fd3eb341a, type: 3}
-      propertyPath: maxLife.Array.data[0]
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f585a79c971df124c877fb5fd3eb341a, type: 3}
 --- !u!1 &1594210547
@@ -7564,14 +7604,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1357067789}
-        m_TargetAssemblyTypeName: Market, Assembly-CSharp
-        m_MethodName: BuidTorret
+      - m_Target: {fileID: 73461953}
+        m_TargetAssemblyTypeName: UpgradeMenu, Assembly-CSharp
+        m_MethodName: TryBuildUpdate
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
