@@ -27,9 +27,9 @@ public class WaveSpawner : MonoBehaviour
         enemyTypes = new EnemyTipes[3];
         foreach (EnemyType ET in defaultEnemyTypes)
         {
-            Debug.Log("setup");
+            
             enemyTypes[n] = new EnemyTipes(ET.EnemyPrefab, ET.MaxAmount, ET.ScalingAmount, ET.DescalingAmount, ET.StartTime, ET.ScalingTime, ET.DescalingTime, ET.scalingTimer, ET.descalingTimer, ET.Amount, ET.Started);
-            Debug.Log(defaultEnemyTypes[n].EnemyPrefab.name);
+            
                n += 1;
         }
         StartTime = Time.realtimeSinceStartup;
@@ -51,32 +51,36 @@ public class WaveSpawner : MonoBehaviour
         {
             countdown = timeBetweenWaves;
             enemyCount = 0;
-
+            timestep = Time.realtimeSinceStartup - StartTime;
             foreach (EnemyTipes ET in enemyTypes)
             {
-                timestep = Time.realtimeSinceStartup - StartTime;
+                
 
-                if(timestep > ET.StartTime)
+                if(timestep > ET.StartTime-1)
                 {
-                    if(ET.Started == true)
+                    if (ET.Started == false)
                     {
                         ET.scalingTimer = timestep + ET.ScalingTime;
                         ET.descalingTimer = timestep + ET.DescalingTime;
-                        ET.Started = false;
+                        ET.Started = true;
                     }
-                    if (timestep > ET.scalingTimer)
+                    else
                     {
-                        ET.MaxAmount += ET.ScalingAmount;
-                        ET.scalingTimer += ET.ScalingTime;
-                    }
-                    if (timestep > ET.descalingTimer)
-                    {
-                        ET.MaxAmount -= ET.DescalingAmount;
-                        ET.descalingTimer += ET.DescalingTime;
+                        if (timestep > ET.scalingTimer-1)
+                        {
+                            ET.MaxAmount += ET.ScalingAmount;
+                            ET.scalingTimer += ET.ScalingTime;
+                            Debug.Log("Scaling: " + ET.scalingTimer + " .. " + timestep);
+                        }
+                        if (timestep > ET.descalingTimer-1)
+                        {
+                            ET.MaxAmount -= ET.DescalingAmount;
+                            ET.descalingTimer += ET.DescalingTime;
+                        }
                     }
                     ET.Amount = ET.MaxAmount;
                     enemyCount += ET.Amount;
-                    
+                    Debug.Log(ET.EnemyPrefab.name+" , "+ ET.Amount);
                 }
 
                 

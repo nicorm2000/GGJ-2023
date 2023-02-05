@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Avispa
   m_EditorClassIdentifier: 
   EnemyPrefab: {fileID: 5331373577434476437, guid: 64d23ec9fd993ef43b70721b637c20bb, type: 3}
-  MaxAmount: 10
+  MaxAmount: 2
   ScalingAmount: 0
   DescalingAmount: 0
   StartTime: 10
