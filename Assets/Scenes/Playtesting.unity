@@ -761,10 +761,11 @@ MonoBehaviour:
   countdown: 2
   waveCountdownText: {fileID: 260228538}
   defaultDeltaSpawn: 1
-  enemyTypes:
+  defaultEnemyTypes:
   - {fileID: 11400000, guid: f78ece06ad236524fa29497a5bb64296, type: 2}
   - {fileID: 11400000, guid: 410ad2872a683d4488d2e43aab60db00, type: 2}
   - {fileID: 11400000, guid: 6cbcc8cf4f43f444bbafe3290bf3d73e, type: 2}
+  enemyTypes: []
   spawnPoint:
   - {fileID: 49815645}
   - {fileID: 868131779}
@@ -6499,7 +6500,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1357067790}
   - component: {fileID: 1357067789}
-  - component: {fileID: 1357067791}
   m_Layer: 0
   m_Name: Market
   m_TagString: Untagged
@@ -6541,18 +6541,6 @@ Transform:
   m_Father: {fileID: 271574098}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1357067791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1357067788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94f7a0334efb4754b9a62f6ae5410314, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1381127870
 GameObject:
   m_ObjectHideFlags: 0

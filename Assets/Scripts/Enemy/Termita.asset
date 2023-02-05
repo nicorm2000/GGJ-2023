@@ -16,10 +16,10 @@ MonoBehaviour:
   MaxAmount: 25
   ScalingAmount: 0
   DescalingAmount: 0
-  StartTime: 1.9989784
+  StartTime: 0
   ScalingTime: 0
   DescalingTime: 0
   scalingTimer: 1.9480006
   descalingTimer: 1.9480006
-  Amount: 14
+  Amount: 20
   Started: 0
