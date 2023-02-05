@@ -18,6 +18,8 @@ public class SlowerTower : Turret
         switch (index)
         {
             case 0:
+                if (damagePrcLvl >= 3)
+                    return false;
                 if (Currency.Get().Spend(priceUpgrade1[damagePrcLvl]))
                 {
                     damagePrcLvl++;
@@ -25,6 +27,8 @@ public class SlowerTower : Turret
                 }
                 return false;
             case 1:
+                if (slowPrcLvl >= 3)
+                    return false;
                 if (Currency.Get().Spend(priceUpgrade2[slowPrcLvl]))
                 {
                     slowPrcLvl++;

@@ -19,13 +19,15 @@ public class MainTower : Turret
             case 0:
                 if (Currency.Get().Spend(priceUpgrade1[maxLifeRegenLvl]))
                 {
-                    if (maxLifeRegenLvl<2)
+                    if (maxLifeRegenLvl<3)
                         maxLifeRegenLvl++;
                     Regen();
                     return true;
                 }
                 return false;
             case 1:
+                if (rangeLvl >= 3)
+                    return false;
                 if (Currency.Get().Spend(priceUpgrade2[rangeLvl]))
                 {
                     rangeLvl++;
@@ -33,6 +35,8 @@ public class MainTower : Turret
                 }
                 return false;
             case 2:
+                if (damageLvl >= 3)
+                    return false;
                 if (Currency.Get().Spend(priceUpgrade1[damageLvl]))
                 {
                     damageLvl++;
