@@ -12,6 +12,7 @@ public class WaveSpawner : MonoBehaviour
 
     [SerializeField] float defaultDeltaSpawn;
 
+    [SerializeField] EnemyType[] enemyDefaultTypes;
     [SerializeField] EnemyType[] enemyTypes;
     [SerializeField] Transform[] spawnPoint;
 
@@ -27,6 +28,7 @@ public class WaveSpawner : MonoBehaviour
             
             ET.StartTime += StartTime;
         }
+        enemyTypes = enemyDefaultTypes;
 
     }
 
