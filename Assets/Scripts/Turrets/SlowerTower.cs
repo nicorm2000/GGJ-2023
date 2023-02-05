@@ -13,6 +13,8 @@ public class SlowerTower : Turret
 
     [SerializeField] private int damagePrcLvl = 0; //mejora 0
 
+    [SerializeField] private string shootSound;
+
     public override bool BuyUpgrade(int index)
     {
         switch (index)
@@ -50,6 +52,8 @@ public class SlowerTower : Turret
 
             bullet.SetExplosive(explotionArea);
             bullet.Seek(target, life * damagePrc[damageLvl],false,true,0,slowDuration,slowPrc[slowPrcLvl]);
+            FindObjectOfType<AudioManager>().Play(shootSound);
+
         }
 
     }

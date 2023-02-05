@@ -64,9 +64,14 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7394849814376117466, guid: 736a660e91e8e9242affe6dda3824f6f, type: 3}
   firePoint: {fileID: 4737737890763905439}
   venomDuration: 1
-  slowPrc: []
+  slowPrc:
+  - 0
+  - 0
+  - 0
+  - 0
   slowDownLvl: 0
   slowDuration: 1
+  shootSound: shootSound
 --- !u!114 &2388833422872296044
 MonoBehaviour:
   m_ObjectHideFlags: 0

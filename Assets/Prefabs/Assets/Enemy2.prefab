@@ -134,12 +134,16 @@ MonoBehaviour:
   atackSpeed: 1
   damage: 50
   lives: 160
+  maxLives: 10
   currencyValue: 50
   speedPercentaje: 1
   poisonDamage: 0
   poisonTime: 0
   slowTime: 0
   slowPrc: 1
+  deathSound: EnemyDeath
+  damagedSound: waspDamaged
+  poisonSound: Poisoned
 --- !u!65 &7913389861129366678
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ public class MainTower : Turret
 
 
     [SerializeField] private float[] maxLife = null;
-    [SerializeField] private float[] range = null;
+    [SerializeField] private float[] range2 = null;
 
     [SerializeField] private int maxLifeRegenLvl = 0;
     [SerializeField] private int rangeLvl = 0;
@@ -54,7 +54,7 @@ public class MainTower : Turret
     protected override void Shoot()
     {
 
-            Collider[] colliders = Physics.OverlapSphere(transform.position, range[rangeLvl]);
+            Collider[] colliders = Physics.OverlapSphere(transform.position, range2[rangeLvl]);
 
             foreach (Collider collider in colliders)
             {

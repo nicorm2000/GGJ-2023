@@ -115,9 +115,13 @@ MonoBehaviour:
   atackSpeed: 1
   damage: 1
   lives: 1
+  maxLives: 10
   currencyValue: 2
   speedPercentaje: 1
-  speed: 5
-  poisoned: 0
   poisonDamage: 0
   poisonTime: 0
+  slowTime: 0
+  slowPrc: 1
+  deathSound: EnemyDeath
+  damagedSound: caterpillarDamaged
+  poisonSound: Poisoned
