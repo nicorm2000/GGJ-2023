@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1567006909030051258}
   - component: {fileID: 153260464092816018}
+  - component: {fileID: 2388833422872296044}
   m_Layer: 0
   m_Name: Turret 3
   m_TagString: Untagged
@@ -46,20 +47,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0689458b8c13b6f4b8edf3edd9f3df7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range:
-  - 5
-  - 8
-  - 15
-  - 20
-  fireRate:
-  - 0.8
+  range: 10
+  fireRate: 10
   damage:
   - 2
   - 4
   - 6
   - 8
-  rangeLvl: 0
-  fireRateLvl: 0
   damageLvl: 0
   priceUpgrade1: 87000000cd00000054010000
   priceUpgrade2: 370000005000000087000000
@@ -69,12 +63,22 @@ MonoBehaviour:
   turnSpeed: 10
   bulletPrefab: {fileID: 7394849814376117466, guid: 736a660e91e8e9242affe6dda3824f6f, type: 3}
   firePoint: {fileID: 4737737890763905439}
-  venomDuration:
-  - 3
-  - 5
-  - 8
-  - 10
-  venomDurationLvl: 0
+  venomDuration: 1
+  slowPrc: []
+  slowDownLvl: 0
+  slowDuration: 1
+--- !u!114 &2388833422872296044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145658678381379553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4758c5dab9316843a3d31db8004919f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1451094733214127978
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,10 +14,11 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
             //lose windows;
         }
     }
-    public void winLife(float life)
+    public void RegenAllLife(float maxLife)
     {
-        lifes += life;
+        lifes = maxLife;
     }
+
     public float getLife()
     { 
         return lifes; 

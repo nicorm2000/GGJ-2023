@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour,IDamageable
     [SerializeField] private int damage;
 
     [SerializeField] private float lives = 10;
+    [SerializeField] private float maxLives = 10;
+
     [SerializeField] private int currencyValue;
 
     [SerializeField,Range(0,1)] private float speedPercentaje = 1f;
@@ -50,6 +52,7 @@ public class Enemy : MonoBehaviour,IDamageable
         this.slowPrc = prc;
         this.slowTime = slowTime;
     }
+    public float GetMaxLife() { return maxLives; }
 
 
     private void Update()

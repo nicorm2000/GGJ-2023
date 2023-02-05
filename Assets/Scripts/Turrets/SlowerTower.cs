@@ -1,44 +1,39 @@
 using UnityEngine;
 public class SlowerTower : Turret
 {
-    [SerializeField] private float[] slowPrc = null;
-    [SerializeField] private float[] slowDuration = null;
-    [SerializeField] private float[] explotionRange = null;
+    [SerializeField] private float[] damagePrc = null; //mejora 0
 
+    [SerializeField] private float[] slowPrc = null; // mejora 1
 
-    [SerializeField] private int slowPrcLvl = 0;
+    [SerializeField] private float slowDuration = 1;
 
-    [SerializeField] private int slowDurationLvl = 0;
+    [SerializeField] private int slowPrcLvl = 0; //mejora 1
 
-    [SerializeField] private int explotionLvl = 0;
+    [SerializeField] private int explotionArea = 0;
+
+    [SerializeField] private int damagePrcLvl = 0; //mejora 0
 
     public override bool BuyUpgrade(int index)
     {
         switch (index)
         {
             case 0:
-                if (Currency.Get().Spend(priceUpgrade1[slowPrcLvl]))
+                if (Currency.Get().Spend(priceUpgrade1[damagePrcLvl]))
+                {
+                    damagePrcLvl++;
+                    return true;
+                }
+                return false;
+            case 1:
+                if (Currency.Get().Spend(priceUpgrade2[slowPrcLvl]))
                 {
                     slowPrcLvl++;
                     return true;
                 }
                 return false;
-            case 1:
-                if (Currency.Get().Spend(priceUpgrade2[rangeLvl]))
-                {
-                    rangeLvl++;
-                    return true;
-                }
-                return false;
-            case 2:
-                if (Currency.Get().Spend(priceUpgrade1[slowDurationLvl]))
-                {
-                    slowDurationLvl++;
-                    return true;
-                }
+            default:
                 return false;
         }
-        return false;
     }
     protected override void Shoot()
     {
@@ -47,11 +42,25 @@ public class SlowerTower : Turret
 
         if (bullet != null)
         {
-            bullet.SetExplosive(explotionRange[explotionLvl]);
+            float life = target.GetComponent<Enemy>().GetMaxLife();
 
-            bullet.Seek(target, damage[damageLvl],false,true,0,slowDuration[slowDurationLvl],slowPrc[slowPrcLvl]);
+            bullet.SetExplosive(explotionArea);
+            bullet.Seek(target, life * damagePrc[damageLvl],false,true,0,slowDuration,slowPrc[slowPrcLvl]);
         }
 
+    }
+
+    public override int GetLvlUpgdare(int index) 
+    {
+        switch (index)
+        {
+            case 0:
+                return damagePrcLvl;
+            case 1:
+                return slowPrcLvl;
+            default:
+                return 0;
+        }
     }
 
 }

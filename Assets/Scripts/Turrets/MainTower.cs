@@ -4,31 +4,31 @@ using UnityEngine;
 public class MainTower : Turret
 {
 
-    private int maxLifeRegenLvl = 0;
 
     [SerializeField] private float[] maxLife = null;
+    [SerializeField] private float[] range = null;
 
-    [SerializeField] private float[] regen = null;
+    [SerializeField] private int maxLifeRegenLvl = 0;
+    [SerializeField] private int rangeLvl = 0;
 
-    [SerializeField] private float regenPer = 1;
-
-    private float DeltaRegen = 0;
 
     public override bool BuyUpgrade(int index)
     {
         switch (index)
         {
             case 0:
-                if (Currency.Get().Spend(priceUpgrade1[rangeLvl]))
+                if (Currency.Get().Spend(priceUpgrade1[maxLifeRegenLvl]))
                 {
-                    rangeLvl++;
+                    if (maxLifeRegenLvl<2)
+                        maxLifeRegenLvl++;
+                    Regen();
                     return true;
                 }
                 return false;
             case 1:
-                if (Currency.Get().Spend(priceUpgrade2[maxLifeRegenLvl]))
+                if (Currency.Get().Spend(priceUpgrade2[rangeLvl]))
                 {
-                    maxLifeRegenLvl++;
+                    rangeLvl++;
                     return true;
                 }
                 return false;
@@ -42,27 +42,9 @@ public class MainTower : Turret
         }
         return false;
     }
-
-    protected override void Update()
-    {
-        base.Update();
-        if (PauseMenu.isPause)
-            return;
-
-        if (GameManager.Get().getLife() < maxLife[maxLifeRegenLvl])
-            Regen();
-    }
     private void Regen()
     {
-        if (DeltaRegen <regenPer)
-        {
-            DeltaRegen += Time.deltaTime;
-            if (DeltaRegen>=regenPer)
-            {
-                DeltaRegen = 0;
-                GameManager.Get().winLife(regen[maxLifeRegenLvl]);
-            }
-        }
+        GameManager.Get().RegenAllLife(maxLife[maxLifeRegenLvl]);
     }
 
     protected override void Shoot()
@@ -83,6 +65,20 @@ public class MainTower : Turret
                     }
                 }
             }
+    }
+    public override int GetLvlUpgdare(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                return maxLifeRegenLvl;
+            case 1:
+                return rangeLvl;
+            case 2:
+                return damageLvl;
+            default:
+                return 0;
+        }
     }
 }
 
