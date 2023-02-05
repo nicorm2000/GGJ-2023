@@ -4256,9 +4256,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 0
   updateCanvas: {fileID: 0}
-  files1: []
-  files2: []
-  files3: []
+  files1:
+  - {fileID: 719488454}
+  - {fileID: 415203192}
+  - {fileID: 1728204906}
+  files2:
+  - {fileID: 1721405109}
+  - {fileID: 252578193}
+  - {fileID: 1401937593}
+  files3:
+  - {fileID: 1269062456}
+  - {fileID: 572512347}
+  - {fileID: 373275429}
   upgradeSound: UpgradeSound
 --- !u!1 &759810585
 GameObject:
