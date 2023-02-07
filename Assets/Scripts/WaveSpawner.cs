@@ -13,7 +13,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] float defaultDeltaSpawn;
 
     [SerializeField] EnemyType[] defaultEnemyTypes;
-    [SerializeField] EnemyTipes[] enemyTypes;
+    EnemyTipes[] enemyTypes;
     [SerializeField] Transform[] spawnPoint;
 
     float StartTime;
@@ -119,7 +119,7 @@ public class WaveSpawner : MonoBehaviour
         {
             int ID = Random.Range(0, enemyTypes.Length);
             
-            if (enemyTypes[ID].Amount > 0 && timestep > enemyTypes[ID].StartTime)
+            if (enemyTypes[ID].Amount > 0 && timestep > enemyTypes[ID].StartTime - 1)
             {
                 enemyTypes[ID].Amount -= 1;
                 enemy = enemyTypes[ID].EnemyPrefab;
