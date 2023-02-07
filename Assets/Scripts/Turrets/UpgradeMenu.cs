@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UpgradeMenu : MonoBehaviourSingleton<UpgradeMenu>
 {
@@ -8,7 +9,9 @@ public class UpgradeMenu : MonoBehaviourSingleton<UpgradeMenu>
     private Turret tower = null;
 
     [SerializeField] GameObject updateCanvas = null;
-
+    
+    [SerializeField] TextMeshProUGUI[] upgradeName = null;
+    [SerializeField] TextMeshProUGUI[] upgradePrice = null;
     [SerializeField] Image[] files1 = null;
     [SerializeField] Image[] files2 = null;
     [SerializeField] Image[] files3 = null;
@@ -21,7 +24,8 @@ public class UpgradeMenu : MonoBehaviourSingleton<UpgradeMenu>
         tower = Towwer;
         updateCanvas.SetActive(true);
         isOpen = true;
-
+        
+        //Set square colors
         foreach (var item in files1)
         {
             item.fillCenter = false;
@@ -51,6 +55,14 @@ public class UpgradeMenu : MonoBehaviourSingleton<UpgradeMenu>
         {
             files3[i].fillCenter = true;
         }
+
+        //set Upgrade names
+        for (int i = 0; i < 3 ; i++)
+        {
+            upgradeName[i].text = tower.GetUpgradeNames(2);
+        }
+
+
     }
 
     private void EndSelect()

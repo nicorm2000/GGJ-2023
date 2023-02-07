@@ -30,6 +30,8 @@ public class Turret : MonoBehaviour
     [SerializeField] protected int[] priceUpgrade2 = null;
     [SerializeField] protected int[] priceUpgrade3 = null;
 
+    [SerializeField] protected string[] UpgradeNames;
+
     [SerializeField]
     FOLLOWTO shootTo = FOLLOWTO.CLOSER;
 
@@ -120,7 +122,7 @@ public class Turret : MonoBehaviour
         
     }
     public virtual int GetLvlUpgdare(int index) { return 0; }
-
+    public string GetUpgradeNames(int index) { return UpgradeNames[index]; }
 
     private void OnDrawGizmosSelected()
     {

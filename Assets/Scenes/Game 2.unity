@@ -6914,6 +6914,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 0
   updateCanvas: {fileID: 31165400}
+  upgradeName:
+  - {fileID: 1875484523}
+  - {fileID: 519402053}
+  - {fileID: 906594584}
+  upgradePrice:
+  - {fileID: 1192345524}
+  - {fileID: 1771244490}
+  - {fileID: 1546335052}
   files1:
   - {fileID: 719488454}
   - {fileID: 415203192}
@@ -9585,7 +9593,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 436, y: 326}
+  m_AnchoredPosition: {x: 368, y: 275}
   m_SizeDelta: {x: 73.3876, y: 65.9228}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1088323977
@@ -9651,7 +9659,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1088323975}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -11473,8 +11481,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 474.32, y: 525.16003}
+  m_AnchoredPosition: {x: 0.000030517578, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1274890531
 MonoBehaviour:
@@ -11574,7 +11582,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 448.12775}
+  m_margin: {x: 0, y: 0, z: 0, w: 428.40643}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -13820,7 +13828,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1567006909030051258, guid: f585a79c971df124c877fb5fd3eb341a, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1567006909030051258, guid: f585a79c971df124c877fb5fd3eb341a, type: 3}
       propertyPath: m_LocalPosition.x
